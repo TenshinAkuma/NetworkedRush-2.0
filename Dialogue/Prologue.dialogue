@@ -1,0 +1,41 @@
+~ phone_ring
+
+set is_on_dialogue = true
+Telephone: RingDingDongRingDingAlingdingdongogaskncasn!!!
+Telephone: Answer ME!!!
+Telephone: RingDingDongRingDingAlingdingdongogaskncasn!!!
+Telephone: Answer ME!!!
+Telephone: Answer ME!!!
+do add_task(current_task_id)
+set is_on_dialogue = false
+
+=> END
+
+
+~ answer_phone
+
+set is_on_dialogue = true
+if TaskManager.current_task_id == 0:
+	if TaskManager.current_objective_id == 1:
+		Developer: [[Hey|Ah|Haha]], there you are. Settling in nicely, I see. Used to the quiet life of NetVille yet?
+		Developer:  Used to be quite the city slicker yourself, weren't you? Burned out on the corporate grind, they say. Craved a change of pace.
+		Developer: Fresh air, friendly neighbors... and apparently, a whole lot less bandwidth.
+		{{player_name}}: Yeah, the city wasn't cutting it anymore
+		{{player_name}}: Needed a slower pace. Maybe some time to think.
+		Developer: Well, Netville might not have the blazing-fast internet speeds you're used to, but that's where you come in, {{player_name}}.
+		Developer: Your expertise in network engineering is the talk of the town. Seems everyone here needs a helping hand getting connected
+		Developer: Netville might be a small town, but its digital needs are growing!
+		Developer: Are you ready to put your skills to the test and become Netville's very own Network Hero?
+		- Yes, abosolutely!
+			Developer: Excellent! Then let's get started. Your first client awaits!
+		- *Non-chalantly.... yeah =|
+			Developer: okay........?
+			Developer: Anyway,let's get going.
+		Developer: Alex, the tech guy is in need of your expertise, go talk to him.
+		do update_objective(current_task_id)
+	else:
+		Telephone: dit . dit . dit.
+		Telephone: The number you have dialed is out of coverage area
+set is_on_dialogue = false
+
+=> END

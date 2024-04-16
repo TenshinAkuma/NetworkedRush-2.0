@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvlv3vo07fs8e"]
+
+[ext_resource type="Script" path="res://Utils/scene_changer.gd" id="1_ipn2m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8kfpu"]
+radius = 16.0
+
+[node name="SceneChanger" type="Area2D"]
+script = ExtResource("1_ipn2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8kfpu")
+
+[node name="spawn_point" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

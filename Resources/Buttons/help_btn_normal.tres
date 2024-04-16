@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://dfl70f43r5r3k"]
+
+[ext_resource type="Texture2D" uid="uid://dux73gk24u61g" path="res://Assets/Tilesheets/Interface/Modern_UI_Style_2_32x32.png" id="1_s1ar2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4hwg"]
+atlas = ExtResource("1_s1ar2")
+region = Rect2(800, 128, 32, 32)
+
+[resource]
+texture = SubResource("AtlasTexture_p4hwg")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 32, 32)

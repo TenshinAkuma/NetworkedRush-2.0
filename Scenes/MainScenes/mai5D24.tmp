@@ -1,0 +1,162 @@
+[gd_scene load_steps=6 format=3 uid="uid://ba68x38nxq66h"]
+
+[ext_resource type="Script" path="res://Scenes/MainScenes/MainMenu.gd" id="1_eurn8"]
+[ext_resource type="FontFile" uid="uid://c7dcfakj1xiji" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="3_68r8f"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="4_hjkbb"]
+[ext_resource type="StyleBox" uid="uid://cwociavkxmi43" path="res://Resources/button_normal.tres" id="5_l5rc2"]
+[ext_resource type="StyleBox" uid="uid://ddojdtcfpnw6t" path="res://Resources/button_hover.tres" id="6_bbhog"]
+
+[node name="MainMenu" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eurn8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0627451, 0.0980392, 0.686275)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="VB" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="spacer" type="Control" parent="ColorRect/MarginContainer/VB"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ColorRect/MarginContainer/VB"]
+clip_contents = true
+custom_minimum_size = Vector2(448, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.152941, 0.152941, 0.239216, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_spacing = -30
+theme_override_fonts/font = ExtResource("3_68r8f")
+theme_override_font_sizes/font_size = 64
+text = "NEtworked Rush"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Subtitle" type="Label" parent="ColorRect/MarginContainer/VB"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.152941, 0.152941, 0.239216, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("4_hjkbb")
+theme_override_font_sizes/font_size = 16
+text = "A 2D top-down computer network enthusiast sim game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="spacer2" type="Control" parent="ColorRect/MarginContainer/VB"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="HB" type="HBoxContainer" parent="ColorRect/MarginContainer/VB"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="NewGame" type="Button" parent="ColorRect/MarginContainer/VB/HB"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_hover_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_focus_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_fonts/font = ExtResource("4_hjkbb")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("5_l5rc2")
+theme_override_styles/hover = ExtResource("6_bbhog")
+theme_override_styles/pressed = ExtResource("5_l5rc2")
+theme_override_styles/focus = ExtResource("5_l5rc2")
+text = "
+"
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VB/HB/NewGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_shadow_color = Color(0.698039, 0.682353, 0.796078, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("4_hjkbb")
+theme_override_font_sizes/font_size = 16
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Exit" type="Button" parent="ColorRect/MarginContainer/VB/HB"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_hover_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_focus_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_fonts/font = ExtResource("4_hjkbb")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("5_l5rc2")
+theme_override_styles/hover = ExtResource("6_bbhog")
+theme_override_styles/pressed = ExtResource("5_l5rc2")
+theme_override_styles/focus = ExtResource("5_l5rc2")
+text = "
+"
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VB/HB/Exit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_shadow_color = Color(0.698039, 0.682353, 0.796078, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("4_hjkbb")
+theme_override_font_sizes/font_size = 16
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VB/HB/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VB/HB/Exit" to="." method="_on_exit_pressed"]

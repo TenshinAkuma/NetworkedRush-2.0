@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://73jm5qjy52vq"]
+
+[ext_resource type="Script" path="res://Dialogue/balloon.gd" id="1_36de5"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="FontFile" uid="uid://c7dcfakj1xiji" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="2_no3sg"]
+[ext_resource type="StyleBox" uid="uid://cwociavkxmi43" path="res://Resources/Buttons/button_normal.tres" id="3_7iba6"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://dux73gk24u61g" path="res://Assets/Tilesheets/Interface/Modern_UI_Style_2_32x32.png" id="4_jopxe"]
+[ext_resource type="StyleBox" uid="uid://ddojdtcfpnw6t" path="res://Resources/Buttons/button_hover.tres" id="4_wdumy"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="5_8bw4i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3mle"]
+atlas = ExtResource("4_jopxe")
+region = Rect2(24, 468, 48, 52)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wybu5"]
+texture = SubResource("AtlasTexture_t3mle")
+texture_margin_left = 16.0
+texture_margin_top = 20.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="Theme" id="Theme_qq3yp"]
+default_font_size = 20
+Button/fonts/font = ExtResource("2_no3sg")
+Button/styles/focus = ExtResource("4_wdumy")
+Button/styles/hover = ExtResource("3_7iba6")
+Button/styles/normal = ExtResource("4_wdumy")
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 15
+Panel/styles/panel = SubResource("StyleBoxTexture_wybu5")
+
+[node name="ExampleBalloon" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_36de5")
+
+[node name="Balloon" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qq3yp")
+
+[node name="Panel" type="Panel" parent="Balloon"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -96.0
+offset_right = -62.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Dialogue" type="MarginContainer" parent="Balloon/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue"]
+layout_mode = 2
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/Dialogue/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("2_no3sg")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Character"
+fit_content = true
+scroll_active = false
+
+[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer" instance=ExtResource("2_a8ve6")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("5_8bw4i")
+theme_override_font_sizes/normal_font_size = 16
+text = "Dialogue..."
+
+[node name="Responses" type="MarginContainer" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -488.0
+offset_right = 228.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 2
+script = ExtResource("3_72ixx")
+response_template = NodePath("ResponseExample")
+
+[node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_hover_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_focus_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_font_sizes/font_size = 8
+text = "Response example"
+alignment = 0
+
+[connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

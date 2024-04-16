@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcbeon4t4wkok"]
+
+[ext_resource type="Texture2D" uid="uid://bpb3krsrpqi8y" path="res://Assets/Tilesheets/Characters/Alex.png" id="1_e8f4k"]
+[ext_resource type="Script" path="res://Scenes/Characters/alex.gd" id="1_l1dwa"]
+[ext_resource type="PackedScene" uid="uid://dlkhe136c8xjq" path="res://Scenes/Characters/name.tscn" id="3_3vdxn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28b4f"]
+atlas = ExtResource("1_e8f4k")
+region = Rect2(576, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cywku"]
+atlas = ExtResource("1_e8f4k")
+region = Rect2(608, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07bdm"]
+atlas = ExtResource("1_e8f4k")
+region = Rect2(640, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vqpl"]
+atlas = ExtResource("1_e8f4k")
+region = Rect2(672, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a351y"]
+atlas = ExtResource("1_e8f4k")
+region = Rect2(704, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw67i"]
+atlas = ExtResource("1_e8f4k")
+region = Rect2(736, 64, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gig0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28b4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cywku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07bdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vqpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a351y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw67i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6g0hf"]
+radius = 14.0
+height = 40.0
+
+[node name="Alex" type="CharacterBody2D"]
+script = ExtResource("1_l1dwa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_gig0k")
+frame = 4
+frame_progress = 0.588659
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_6g0hf")
+
+[node name="Name" parent="." instance=ExtResource("3_3vdxn")]

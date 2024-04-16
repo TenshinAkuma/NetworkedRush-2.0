@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdtqjexv4r6xf"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/player_camera.gd" id="1_wxrnm"]
+
+[node name="PlayerCamera" type="Camera2D"]
+position_smoothing_speed = 10.0
+script = ExtResource("1_wxrnm")
+
+[node name="Limits" type="Node" parent="."]
+
+[node name="TopLeft" type="Marker2D" parent="Limits"]
+position = Vector2(-398, -242)
+
+[node name="BottomRIght" type="Marker2D" parent="Limits"]
+position = Vector2(336, 192)

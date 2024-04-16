@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://xmywv2i2lat4"]
+
+[ext_resource type="Script" path="res://Scenes/MainScenes/game_manager.gd" id="1_0a2pb"]
+[ext_resource type="PackedScene" uid="uid://dv270qxtghgae" path="res://Scenes/UIScenes/ui.tscn" id="3_428td"]
+
+[node name="GameManager" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_0a2pb")
+
+[node name="UI" parent="." instance=ExtResource("3_428td")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

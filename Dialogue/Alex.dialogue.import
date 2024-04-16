@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cap5mgww70plq"
+path="res://.godot/imported/Alex.dialogue-79dae05bf61b43450eda87705aebb4b2.tres"
+
+[deps]
+
+source_file="res://Dialogue/Alex.dialogue"
+dest_files=["res://.godot/imported/Alex.dialogue-79dae05bf61b43450eda87705aebb4b2.tres"]
+
+[params]
+
+defaults=true

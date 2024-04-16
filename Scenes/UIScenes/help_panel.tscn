@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=3 uid="uid://baanbsd4d3prj"]
+
+[ext_resource type="Texture2D" uid="uid://dux73gk24u61g" path="res://Assets/Tilesheets/Interface/Modern_UI_Style_2_32x32.png" id="1_gilit"]
+[ext_resource type="Script" path="res://Scenes/UIScenes/help_panel.gd" id="1_uygtf"]
+[ext_resource type="FontFile" uid="uid://c7dcfakj1xiji" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="2_b6jcf"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="3_ubtl4"]
+[ext_resource type="Texture2D" uid="uid://dx4rfhu8r1rhb" path="res://Assets/UI/Arts/images.png" id="4_x01fe"]
+[ext_resource type="StyleBox" uid="uid://ddojdtcfpnw6t" path="res://Resources/Buttons/button_hover.tres" id="5_u7cxm"]
+[ext_resource type="StyleBox" uid="uid://cwociavkxmi43" path="res://Resources/Buttons/button_normal.tres" id="6_ckidr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm14j"]
+atlas = ExtResource("1_gilit")
+region = Rect2(24, 468, 48, 52)
+
+[node name="HelpPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uygtf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0627451, 0.0980392, 0.498039)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect"]
+custom_minimum_size = Vector2(384, 224)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.155556
+anchor_right = 0.85
+anchor_bottom = 0.888889
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_pm14j")
+patch_margin_left = 12
+patch_margin_top = 16
+patch_margin_right = 12
+patch_margin_bottom = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 9
+
+[node name="HelpTitle" type="Label" parent="ColorRect/NinePatchRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(416, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_b6jcf")
+theme_override_font_sizes/font_size = 16
+text = "<Help Title>"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Info" type="Label" parent="ColorRect/NinePatchRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(416, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("3_ubtl4")
+text = "A star topology, sometimes known as a star network, is a network topology in which each device is connected to a central hub. It is one of the most prevalent computer network configurations, and it's by far the most popular Network Topology. In this network arrangement, all devices linked to a central network device are displayed as a star."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Image" type="TextureRect" parent="ColorRect/NinePatchRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+texture = ExtResource("4_x01fe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Back" type="Button" parent="ColorRect/NinePatchRect/MarginContainer"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_hover_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_focus_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_fonts/font = ExtResource("3_ubtl4")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("5_u7cxm")
+theme_override_styles/hover = ExtResource("6_ckidr")
+theme_override_styles/pressed = ExtResource("5_u7cxm")
+theme_override_styles/focus = ExtResource("5_u7cxm")
+text = "Back"

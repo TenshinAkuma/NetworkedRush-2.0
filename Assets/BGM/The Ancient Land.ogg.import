@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://3nhrohde4oye"
+path="res://.godot/imported/The Ancient Land.ogg-a6359966dfe7a6cf44ed7bd58c4d0de2.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/BGM/The Ancient Land.ogg"
+dest_files=["res://.godot/imported/The Ancient Land.ogg-a6359966dfe7a6cf44ed7bd58c4d0de2.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

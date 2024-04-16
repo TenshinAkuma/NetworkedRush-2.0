@@ -1,0 +1,64 @@
+~ alex_objective_0
+
+set is_on_dialogue = true
+if current_task_id == 0 and current_objective_id == 2:
+	Alex: [[Yo wassup|Wassup|G'day]], You the Network Engineer everyone's been raving about?
+	{{player_name}}: Ayyye, that's me. What can I do for you bruh?
+	Alex: Listen, I just built this fire PC, but my Wi-Fi be trippin' somethin' fierce.
+	Alex:  Laggin' like nobody's business during my raids.
+	Alex: See if you can bless this crib with some proper net connection, aight?
+	- Alright, let's go
+		do update_objective(current_task_id)
+		Alex: NOICE!! Let's head inside do diagnose the problem. {{player_name}}
+	- Maybe next time
+		Alex: Awwe man. I wish you could help me so that I could play with the squad :(
+elif current_task_id == 1 and current_objective_id == 1:
+	Alex: Let's head inside {{player_name}} and see what we can do about my netwerk...
+	Alex: I mean, network >_<
+else:
+	Alex: [[Waazaup chong|YOW mamehn|UIE GAR]]! Life is like a Trojan virus, full of surprises :()
+set is_on_dialogue = false
+
+=> END
+
+~ alex_objective_1
+set is_on_dialogue = true
+if current_task_id == 1:
+	if current_objective_id == 1:
+		Alex: Yo {{player_name}}! Thanks for coming over. This net situation is outta control, man.
+		Alex: My PC lags like crazy during raids, and the TV buffers every time I try to stream. 
+		Alex: We gotta fix this, you know what I'm sayin'?
+		{{player_name}}: Sounds like a bandwidth bottleneck, Alex.
+		{{player_name}}: We need to optimize your network for both your PC and the TV.
+		Alex: Right on! I was lookin' at some stuff online, and they mentioned somethin' called a "star network topology." You think that'd work?
+		{{player_name}}: Star network? Absolutely. That's the ideal setup for a home network.
+		{{player_name}}: Everything connects directly to the router, like spokes on a wheel. No more fighting for bandwidth.
+		Alex: See, that's what I was thinkin'!
+		Alex: Right now, my PC and the TV are probably sharing the same signal, like roommates fightin' over the Wi-Fi password.
+		{{player_name}}: Exactly. A star network gives each device its own dedicated connection.
+		{{player_name}}: It's cleaner, faster, and way more efficient. Perfect for your setup. Let's get those cables running!
+		do update_objective(current_task_id)
+		Alex: Word! You're the network wizard, {{player_name}}.
+		
+	elif current_objective_id == 2:
+		Alex: Gotta build the star topology! You're the network wizard, {{player_name}}.
+		Alex: Remember that in a star topology, each device is connected to a single hub.
+		Alex: In this case, the PC should be connected to the router by a single connection,
+		
+	elif current_objective_id == 3:
+		Alex: Remember that in a star topology, each device is connected to a single hub.
+		Alex: In this case, the TV and the router should have a single connection.
+		
+	elif current_objective_id == 4:
+		Alex: Thank for the help {{player_name}}
+		Alex: Here's your reward man!
+		do update_objective(current_task_id)
+		{{player_name}}: [[Thank you man|No problem|Ako lang to]].
+	else:
+		Alex: You're the network wizard, {{player_name}}!
+		
+else:
+	Alex: Wazuzup mananap! Seems like a great time to spaghettify some ethernet cables!!!
+	Alex: Just kidding! HaHaHa!!!
+set is_on_dialogue = false
+=> END

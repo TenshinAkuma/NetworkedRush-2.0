@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs42lcpvqgfp0"]
+
+[ext_resource type="Script" path="res://Utils/connect_device.gd" id="1_6pnqh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uoded"]
+radius = 32.0
+
+[node name="connect_device" type="Area2D"]
+script = ExtResource("1_6pnqh")
+player_action = "connect"
+interaction_key = "E"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uoded")
+
+[node name="DevicePosition" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered_device"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited_device"]

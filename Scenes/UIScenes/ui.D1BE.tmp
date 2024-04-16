@@ -1,0 +1,166 @@
+[gd_scene load_steps=11 format=3 uid="uid://dv270qxtghgae"]
+
+[ext_resource type="Script" path="res://Scenes/UIScenes/ui.gd" id="1_eoqdi"]
+[ext_resource type="Texture2D" uid="uid://cqpebqyor663b" path="res://Assets/Tilesheets/Characters/Player.png" id="1_nvr4f"]
+[ext_resource type="FontFile" uid="uid://c7dcfakj1xiji" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="2_5xmnk"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="3_iajk8"]
+[ext_resource type="Texture2D" uid="uid://dux73gk24u61g" path="res://Assets/Tilesheets/Interface/Modern_UI_Style_2_32x32.png" id="4_xlco1"]
+[ext_resource type="StyleBox" uid="uid://dfqoaiavr20kg" path="res://Resources/50_opacity_texture.tres" id="6_0jupt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8fhh"]
+atlas = ExtResource("1_nvr4f")
+region = Rect2(96, 16, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a53l0"]
+atlas = ExtResource("4_xlco1")
+region = Rect2(416, 800, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xef21"]
+atlas = ExtResource("4_xlco1")
+region = Rect2(928, 32, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vrr3h"]
+texture = SubResource("AtlasTexture_xef21")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_eoqdi")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MG" type="MarginContainer" parent="HUD"]
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="VB" type="VBoxContainer" parent="HUD/MG"]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="PlayerInfo" type="HBoxContainer" parent="HUD/MG/VB"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="Image" type="NinePatchRect" parent="HUD/MG/VB/PlayerInfo"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_m8fhh")
+
+[node name="VB" type="VBoxContainer" parent="HUD/MG/VB/PlayerInfo"]
+layout_mode = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="HUD/MG/VB/PlayerInfo/VB"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_5xmnk")
+theme_override_font_sizes/font_size = 8
+text = "<player_name>"
+
+[node name="Level" type="Label" parent="HUD/MG/VB/PlayerInfo/VB"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5xmnk")
+theme_override_font_sizes/font_size = 8
+text = "<level0>"
+
+[node name="Packets" type="HBoxContainer" parent="HUD/MG/VB"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 2
+
+[node name="Icon" type="TextureRect" parent="HUD/MG/VB/Packets"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_a53l0")
+expand_mode = 5
+
+[node name="Packet" type="Label" parent="HUD/MG/VB/Packets"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_5xmnk")
+theme_override_font_sizes/font_size = 8
+text = "<packets>"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="HUD/MG/VB"]
+custom_minimum_size = Vector2(0, 9)
+layout_mode = 2
+
+[node name="TaskName" type="Label" parent="HUD/MG/VB"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5xmnk")
+text = "<Taskname>"
+
+[node name="Objective" type="Label" parent="HUD/MG/VB"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5xmnk")
+theme_override_font_sizes/font_size = 8
+text = "<Objective>"
+
+[node name="Settings" type="Button" parent="HUD/MG"]
+clip_contents = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_vrr3h")
+
+[node name="Hint" type="Label" parent="HUD"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(192, 32)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -91.0
+offset_right = 96.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_iajk8")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("6_0jupt")
+text = "Press 'E' to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true

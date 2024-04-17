@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://ddlcpxyjfmfdb" path="res://Assets/BGM/Morning of Beginnings.ogg" id="5_dr3x3"]
 
 [node name="ApartmentFloor1" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_xrxkb")
 
 [node name="ColorRect" type="ColorRect" parent="."]

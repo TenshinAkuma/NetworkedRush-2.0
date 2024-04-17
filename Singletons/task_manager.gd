@@ -63,6 +63,7 @@ func task_completed(task_id: int):
 	is_task_active = false
 	
 	current_task_id += 1
+	current_objective_id = 0
 	add_task(current_task_id)
 	
 func task_reward(task_id: int):

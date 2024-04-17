@@ -3,7 +3,7 @@ extends Control
 var save_path = "user://game_data.save"
 
 func _ready():
-
+	
 	if not TaskManager.on_display_task_name.is_connected(display_task):
 		TaskManager.on_display_task_name.connect(display_task)
 	
@@ -20,10 +20,10 @@ func display_objective(objective_description: String):
 
 func display_current_objective():
 	if TaskManager.is_task_active:
-		var task_id = TaskManager.current_task_id
-		var objective_id = TaskManager.current_objective_id
-		if objective_id in TaskManager._active_task[task_id]["objectives"].keys():
-			%Objective.text = str(TaskManager._active_task[task_id]["objectives"][objective_id])
+		var task_id: int = TaskManager.current_task_id
+		var objective_id: int = TaskManager.current_objective_id
+		if objective_id in TaskManager._tasks[task_id]["objectives"].keys():
+			%Objective.text = str(TaskManager._tasks[task_id]["objectives"][objective_id])
 	else:
 		%Task.text = "No current task"
 		%Objective.text = "No current objective"

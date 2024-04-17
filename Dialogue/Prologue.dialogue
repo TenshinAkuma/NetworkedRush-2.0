@@ -7,6 +7,7 @@ Telephone: RingDingDongRingDingAlingdingdongogaskncasn!!!
 Telephone: Answer ME!!!
 Telephone: Answer ME!!!
 do add_task(current_task_id)
+do point_object("PhonePointer", true)
 set is_on_dialogue = false
 
 => END
@@ -33,9 +34,10 @@ if TaskManager.current_task_id == 0:
 			Developer: Anyway,let's get going.
 		Developer: Alex, the tech guy is in need of your expertise, go talk to him.
 		do update_objective(current_task_id)
-	else:
-		Telephone: dit . dit . dit.
-		Telephone: The number you have dialed is out of coverage area
+		do point_object("PhonePointer", false)
+else:
+	Telephone: dit . dit . dit.
+	Telephone: The number you have dialed is out of coverage area
 set is_on_dialogue = false
 
 => END

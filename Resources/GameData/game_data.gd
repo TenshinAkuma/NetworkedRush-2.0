@@ -14,8 +14,10 @@ func save():
 				"packetPoints" : PlayerData.packets,
 			},
 			"taskData": {
-				"taskID" : TaskManager.current_task_id,
-				"objectiveID" : TaskManager.current_objective_id
+				"taskActive" : TaskManager.is_task_active,
+				"taskID" : TaskManager.current_task_id as int,
+				"objectiveID" : TaskManager.current_objective_id as int,
+				"activeTask" : TaskManager._active_task
 			}
 	}
 	return _game_data
@@ -31,10 +33,10 @@ func load_game():
 		print("No data has been saved")
 		return
 		
-	var save_game = FileAccess.open(save_path, FileAccess.READ)
+	var _save_game = FileAccess.open(save_path, FileAccess.READ)
 	
-	while save_game.get_position() < save_game.get_length():
-		var json_string = save_game.get_line()
+	while _save_game.get_position() < _save_game.get_length():
+		var json_string = _save_game.get_line()
 		var json = JSON.new()
 		var parse_result = json.parse(json_string)
 		if not parse_result == OK:
@@ -47,5 +49,8 @@ func load_game():
 		PlayerData.player_exp = game_data["playerData"]["expPoints"]
 		PlayerData.required_exp = game_data["playerData"]["expRequired"]
 		PlayerData.packets = game_data["playerData"]["packetPoints"]
+		
+		TaskManager.is_task_active = game_data["taskData"]["taskActive"]
 		TaskManager.current_task_id = game_data["taskData"]["taskID"]
-		TaskManager.current_task_id = game_data["taskData"]["objectiveID"]
+		TaskManager.current_objective_id = game_data["taskData"]["objectiveID"]
+		TaskManager._active_task = game_data["taskData"]["activeTask"]

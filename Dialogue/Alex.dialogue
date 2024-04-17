@@ -38,6 +38,7 @@ if current_task_id == 1:
 		{{player_name}}: Exactly. A star network gives each device its own dedicated connection.
 		{{player_name}}: It's cleaner, faster, and way more efficient. Perfect for your setup. Let's get those cables running!
 		do update_objective(current_task_id)
+		do point_object("RouterPointer", true)
 		Alex: Word! You're the network wizard, {{player_name}}.
 		
 	elif current_objective_id == 2:

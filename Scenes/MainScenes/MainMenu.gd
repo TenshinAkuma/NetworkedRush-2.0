@@ -6,7 +6,6 @@ const InputCharName = preload("res://Scenes/UIScenes/input_player_name.tscn")
 
 func _ready():
 	init_menu()
-	$AnimationPlayer.play
 	
 func init_menu():
 	var menu = Menu.instantiate()
@@ -50,8 +49,8 @@ func on_start_game():
 	SceneManager.go_to_map(current_scene, target_scene)
 
 func on_load_game():
-	var game_data = GameData.new()
-	game_data.load_game()
+	get_tree().paused = false
+	GameManager.load_game()
 	var current_scene = "MainMenu"
 	var target_scene = "player_apartment"
 	SceneManager.go_to_map(current_scene, target_scene)

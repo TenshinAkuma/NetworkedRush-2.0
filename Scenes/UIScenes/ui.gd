@@ -32,10 +32,10 @@ func _process(_delta):
 		get_tree().paused = SceneManager.is_game_paused
 	elif not SceneManager.is_game_paused:
 		get_tree().paused = SceneManager.is_game_paused
-	elif UIManager.is_on_dialogue:
-		get_tree().paused = UIManager.is_on_dialogue
-	elif UIManager.is_on_dialogue:
-		get_tree().paused = UIManager.is_on_dialogue
+	elif GameManager.is_on_dialogue:
+		get_tree().paused = GameManager.is_on_dialogue
+	elif not GameManager.is_on_dialogue:
+		get_tree().paused = GameManager.is_on_dialogue
 	else:
 		get_tree().paused = false
 

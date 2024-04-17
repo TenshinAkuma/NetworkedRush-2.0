@@ -10,13 +10,7 @@ func _ready():
 	if not GameManager.on_start_dialogue.is_connected(start_dialogue):
 		GameManager.on_start_dialogue.connect(start_dialogue)
 		
-	if TaskManager.current_task_id == 0 and TaskManager.current_objective_id == 0:
-		$Timer.start()
 
-func _on_timer_timeout():
-	GameManager.start_dialogue(load("res://Dialogue/Prologue.dialogue"), "phone_ring")
-		
-		
 func load_level(current_scene, scene_to_load):
 	print(scene_to_load)
 	add_child(scene_to_load)

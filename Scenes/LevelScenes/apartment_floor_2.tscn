@@ -1,14 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://jllvuoquu3xr"]
+[gd_scene load_steps=10 format=3 uid="uid://jllvuoquu3xr"]
 
 [ext_resource type="TileSet" uid="uid://cuciy0utkrr5c" path="res://Resources/TileMaps/interior_player_house.tres" id="1_bgpiy"]
 [ext_resource type="Script" path="res://Scenes/LevelScenes/apartment_floor_2.gd" id="1_nucnn"]
 [ext_resource type="PackedScene" uid="uid://bvlv3vo07fs8e" path="res://Utils/scene_changer.tscn" id="2_w1rmp"]
 [ext_resource type="PackedScene" uid="uid://cxi3jkrldfnnl" path="res://Scenes/Characters/player.tscn" id="3_kgke5"]
+[ext_resource type="PackedScene" uid="uid://dbe16aftgufjw" path="res://Scenes/UIScenes/pointer.tscn" id="3_tps0n"]
 [ext_resource type="AudioStream" uid="uid://c8uslurlvldwo" path="res://Assets/BGM/hometown.ogg" id="5_d1pny"]
 [ext_resource type="PackedScene" uid="uid://wlskto781teh" path="res://Utils/dialogue_trigger.tscn" id="6_jn7a0"]
 [ext_resource type="Resource" uid="uid://ciq6v1wmwjro6" path="res://Dialogue/Prologue.dialogue" id="7_6r622"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfyrl"]
+radius = 36.0
+
 [node name="ApartmentFloor2" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_nucnn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -41,6 +46,11 @@ layer_4/name = "pops2"
 layer_4/y_sort_enabled = true
 layer_4/z_index = 2
 layer_4/tile_data = PackedInt32Array(65545, 524297, 8, 65546, 589833, 8, 65543, 983049, 30, 65544, 655369, 33, 7, 983049, 29, 131082, 393225, 9, 11, 655369, 23, 65547, 655369, 24, 131083, 655369, 25, 131079, 9, 38, 196615, 9, 39, 327693, 10, 35, 327694, 10, 35, 65550, 917514, 12, 65551, 983050, 12, 524295, 917514, 33, 589831, 917514, 34, 65549, 917514, 33, 131085, 917514, 34, 131087, 917514, 29, 16, 589834, 12, 65552, 589834, 13, 17, 655370, 12, 65553, 655370, 13, 327687, 393226, 7, 327697, 393226, 7, 458766, 393226, 7, 196620, 393226, 7, 196623, 65546, 8, 589832, 655370, 9)
+
+[node name="PhonePointer" parent="TileMap" instance=ExtResource("3_tps0n")]
+process_mode = 3
+z_index = 4
+position = Vector2(272, 260)
 
 [node name="Doors" type="Node" parent="."]
 
@@ -77,6 +87,14 @@ dialogue_resource = ExtResource("7_6r622")
 dialogue_start = "answer_phone"
 player_action = "to answer"
 interaction_key = "T"
+
+[node name="DetectPrologue" type="Area2D" parent="."]
+position = Vector2(208, 224)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPrologue"]
+shape = SubResource("CircleShape2D_hfyrl")
+
+[connection signal="body_entered" from="DetectPrologue" to="." method="_on_detect_prologue_body_entered"]
 
 [editable path="Doors/to_floor_1"]
 [editable path="Player"]

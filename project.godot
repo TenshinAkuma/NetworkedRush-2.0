@@ -15,7 +15,10 @@ run/main_scene="res://scene_handler.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="NetworkedRushGameData"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/image="res://Assets/UI/Arts/splash.png"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
@@ -29,7 +32,7 @@ GameManager="*res://Singletons/game_manager.gd"
 [dialogue_manager]
 
 general/balloon_path="res://Dialogue/balloon.tscn"
-general/states=["TaskManager", "UIManager", "PlayerData", "SceneManager"]
+general/states=["TaskManager", "UIManager", "PlayerData", "SceneManager", "GameManager"]
 
 [display]
 

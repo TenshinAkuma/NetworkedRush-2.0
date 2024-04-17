@@ -15,6 +15,7 @@ var start_device: Vector2
 func _ready():
 	if SceneManager.target_spawn_tag:
 		on_spawn(SceneManager.target_spawn_tag)
+
 		
 	for device in get_tree().get_nodes_in_group("devices"):
 		device.monitoring = false
@@ -70,7 +71,7 @@ func verify_connection(end_point: Vector2):
 	
 	connect_device.create_line(astar, tile_map, start_connection, end_connection, device_cable)
 	
-	if TaskManager.current_task_id == 1:
+	if TaskManager.current_task_id == 1 and start_device != end_point:
 		if TaskManager.current_objective_id == 2 and end_point == $Devices/PC.get_node("DevicePosition").global_position:
 			get_node("Cables").add_child(device_cable)
 			TaskManager.update_objective(TaskManager.current_task_id)

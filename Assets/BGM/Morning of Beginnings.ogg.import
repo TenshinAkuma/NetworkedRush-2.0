@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ddlcpxyjfmfdb"
+path="res://.godot/imported/Morning of Beginnings.ogg-f8e34b914a0019555b5a8057fd2d7c48.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/BGM/Morning of Beginnings.ogg"
+dest_files=["res://.godot/imported/Morning of Beginnings.ogg-f8e34b914a0019555b5a8057fd2d7c48.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

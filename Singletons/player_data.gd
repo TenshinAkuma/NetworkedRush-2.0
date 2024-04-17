@@ -4,8 +4,8 @@ signal on_update_player_level(player_level)
 
 var player_name: String = "<Playername>"
 var player_level: int = 0
-var packets: int
-var player_exp: int
+var packets: int = 0
+var player_exp: int = 0
 var required_exp: int = 30
 
 func update_reward(packet_points: int, exp_points: int):

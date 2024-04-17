@@ -11,7 +11,7 @@ var _on_area: bool = false
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("talk") and _on_area:
-		UIManager.start_dialogue(dialogue_resource, dialogue_start)
+		GameManager.start_dialogue(dialogue_resource, dialogue_start)
 	
 func _on_body_entered(body):
 	if body is Player:

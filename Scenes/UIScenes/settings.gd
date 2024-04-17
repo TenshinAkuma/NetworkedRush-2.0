@@ -27,3 +27,12 @@ func display_current_objective():
 	else:
 		%Task.text = "No current task"
 		%Objective.text = "No current objective"
+
+
+func _on_save_pressed():
+	var game_data = GameData.new()
+	game_data.save_game()
+
+
+func _on_exit_pressed():
+	SceneManager.back_to_main_menu()

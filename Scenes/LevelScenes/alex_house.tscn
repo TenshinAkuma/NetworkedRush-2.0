@@ -62,7 +62,7 @@ default_color = Color(0.0588235, 0.862745, 0.901961, 1)
 [node name="exit" parent="Doors" instance=ExtResource("14_4re57")]
 position = Vector2(224, 312)
 scale = Vector2(1, 1.00414)
-target_scene = "map1"
+target_scene = "map_1"
 spawn_tag = "entrance_alex"
 spawn_orientation = Vector2(0, -1)
 player_action = "exit house"

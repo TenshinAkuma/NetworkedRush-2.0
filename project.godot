@@ -24,6 +24,7 @@ UIManager="*res://Singletons/ui_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 TaskManager="*res://Singletons/task_manager.gd"
 PlayerData="*res://Singletons/player_data.gd"
+GameManager="*res://Singletons/game_manager.gd"
 
 [dialogue_manager]
 

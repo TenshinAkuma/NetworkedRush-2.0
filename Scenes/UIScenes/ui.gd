@@ -17,9 +17,6 @@ func _ready():
 	if not UIManager.on_display_interaction.is_connected(display_interaction):
 		UIManager.on_display_interaction.connect(display_interaction)
 		
-	if not UIManager.on_start_dialogue.is_connected(start_dialogue):
-		UIManager.on_start_dialogue.connect(start_dialogue)
-		
 	if not TaskManager.on_display_objective.is_connected(display_objective):
 		TaskManager.on_display_objective.connect(display_objective)
 		
@@ -30,10 +27,17 @@ func _ready():
 		PlayerData.on_update_player_level.connect(update_player_level)
 
 func _process(_delta):
-	if UIManager.is_on_dialogue:
+		
+	if SceneManager.is_game_paused:
+		get_tree().paused = SceneManager.is_game_paused
+	elif not SceneManager.is_game_paused:
+		get_tree().paused = SceneManager.is_game_paused
+	elif UIManager.is_on_dialogue:
+		get_tree().paused = UIManager.is_on_dialogue
+	elif UIManager.is_on_dialogue:
 		get_tree().paused = UIManager.is_on_dialogue
 	else:
-		get_tree().paused = UIManager.is_on_dialogue
+		get_tree().paused = false
 
 func update_player_level(new_level):
 	%Level.text = "Lvl." + str(new_level)
@@ -52,12 +56,6 @@ func display_interaction(interaction_hint, is_hint_visible):
 	%Hint.visible = is_hint_visible
 	%Hint.text = interaction_hint
 
-
-func start_dialogue(dialogue_resource, dialogue_start):
-	var dialogue = Dialogue.instantiate()
-	dialogue.name = "DialogueBox"
-	add_child(dialogue)
-	dialogue.start(dialogue_resource, dialogue_start)
 	
 func update_rewards(packet_points, exp_points):
 	PlayerData.update_reward(packet_points, exp_points)

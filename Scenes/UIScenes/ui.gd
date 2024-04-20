@@ -2,6 +2,7 @@ extends CanvasLayer
 
 const Dialogue = preload("res://Dialogue/balloon.tscn")
 
+var is_paused: bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -13,37 +14,48 @@ func _ready():
 	%HelpPanel.hide()
 	%Hint.visible = false
 	%Settings.hide()
-	
+			
+	if not GameManager.on_start_dialogue.is_connected(start_dialogue):
+		GameManager.on_start_dialogue.connect(start_dialogue)
+		
+	if not UIManager.on_update_task.is_connected(display_objective):
+		UIManager.on_update_task.connect(display_objective)
+		
+	if not UIManager.on_update_rewards.is_connected(update_rewards):
+		UIManager.on_update_rewards.connect(update_rewards)
+		
 	if not UIManager.on_display_interaction.is_connected(display_interaction):
 		UIManager.on_display_interaction.connect(display_interaction)
 		
-	if not TaskManager.on_display_objective.is_connected(display_objective):
-		TaskManager.on_display_objective.connect(display_objective)
-		
-	if not TaskManager.on_update_rewards.is_connected(update_rewards):
-		TaskManager.on_update_rewards.connect(update_rewards)
-		
 	if not PlayerData.on_update_player_level.is_connected(update_player_level):
 		PlayerData.on_update_player_level.connect(update_player_level)
-
-func _process(_delta):
 		
-	if SceneManager.is_game_paused:
-		get_tree().paused = SceneManager.is_game_paused
-	elif not SceneManager.is_game_paused:
-		get_tree().paused = SceneManager.is_game_paused
-	elif GameManager.is_on_dialogue:
-		get_tree().paused = GameManager.is_on_dialogue
-	elif not GameManager.is_on_dialogue:
-		get_tree().paused = GameManager.is_on_dialogue
-	else:
-		get_tree().paused = false
+	if not GameManager.on_show_cert.is_connected(show_cert):
+		GameManager.on_show_cert.connect(show_cert)
+		
+	if not SceneManager.on_load_object_scene.is_connected(load_object_scene):
+		SceneManager.on_load_object_scene.connect(load_object_scene)
 
+
+func load_object_scene(object_scene_path):
+	get_node("HUD").add_child(object_scene_path)
+
+func show_cert():
+	var cert = load("res://Scenes/UIScenes/certificate.tscn").instantiate()
+	cert.name = "Certificate"
+	add_child(cert)
+	
+func start_dialogue(dialogue_resource, dialogue_start):
+	var dialogue = Dialogue.instantiate()
+	dialogue.name = "DialogueBox"
+	add_child(dialogue)
+	dialogue.start(dialogue_resource, dialogue_start)
+	
 func update_player_level(new_level):
 	%Level.text = "Lvl." + str(new_level)
 	
 	
-func display_objective(objective_description: String):
+func display_objective(_task_name: String, objective_description: String):
 	%Objective.text = "<" + objective_description + ">"
 	$ObjectiveTimer.start()
 	%TaskNotif.show()
@@ -57,31 +69,17 @@ func display_interaction(interaction_hint, is_hint_visible):
 	%Hint.text = interaction_hint
 
 	
-func update_rewards(packet_points, exp_points):
-	PlayerData.update_reward(packet_points, exp_points)
+func update_rewards(_packet_points, _exp_points):
 	%Packet.text = str(PlayerData.packets)
 
 
 func _on_settings_btn_pressed():
-	SceneManager.is_game_paused = true
+	is_paused = !get_tree().paused
+	get_tree().paused = is_paused
 	%Settings.show()
 
 
-func _on_exit_settings_pressed():
-	SceneManager.is_game_paused = false
-	%Settings.hide()
-
-
-func _on_continue_pressed():
-	SceneManager.is_game_paused = false
-	%Settings.hide()
-
-
-func _on_back_pressed():
-	SceneManager.is_game_paused = false
-	%HelpPanel.hide()
-
-
 func _on_help_btn_pressed():
-	SceneManager.is_game_paused = true
+	is_paused = !get_tree().paused
+	get_tree().paused = is_paused
 	%HelpPanel.show()

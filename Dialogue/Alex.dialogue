@@ -1,6 +1,5 @@
 ~ alex_objective_0
 
-set is_on_dialogue = true
 if current_task_id == 0 and current_objective_id == 2:
 	Alex: [[Yo wassup|Wassup|G'day]], You the Network Engineer everyone's been raving about?
 	{{player_name}}: Ayyye, that's me. What can I do for you bruh?
@@ -17,12 +16,11 @@ elif current_task_id == 1 and current_objective_id == 1:
 	Alex: I mean, network >_<
 else:
 	Alex: [[Waazaup chong|YOW mamehn|UIE GAR]]! Life is like a Trojan virus, full of surprises :()
-set is_on_dialogue = false
+
 
 => END
 
 ~ alex_objective_1
-set is_on_dialogue = true
 if current_task_id == 1:
 	if current_objective_id == 1:
 		Alex: Yo {{player_name}}! Thanks for coming over. This net situation is outta control, man.
@@ -31,6 +29,7 @@ if current_task_id == 1:
 		{{player_name}}: Sounds like a bandwidth bottleneck, Alex.
 		{{player_name}}: We need to optimize your network for both your PC and the TV.
 		Alex: Right on! I was lookin' at some stuff online, and they mentioned somethin' called a "star network topology." You think that'd work?
+		do show_topology_hint("star", true)
 		{{player_name}}: Star network? Absolutely. That's the ideal setup for a home network.
 		{{player_name}}: Everything connects directly to the router, like spokes on a wheel. No more fighting for bandwidth.
 		Alex: See, that's what I was thinkin'!
@@ -39,6 +38,7 @@ if current_task_id == 1:
 		{{player_name}}: It's cleaner, faster, and way more efficient. Perfect for your setup. Let's get those cables running!
 		do update_objective(current_task_id)
 		do point_object("RouterPointer", true)
+		do show_topology_hint("star", false)
 		Alex: Word! You're the network wizard, {{player_name}}.
 		
 	elif current_objective_id == 2:
@@ -54,12 +54,12 @@ if current_task_id == 1:
 		Alex: Thank for the help {{player_name}}
 		Alex: Here's your reward man!
 		do update_objective(current_task_id)
-		{{player_name}}: [[Thank you man|No problem|Ako lang to]].
+		{{player_name}}: [[Thank you man|No problem|Ako lang to]]!
+		do on_show_cert.emit()
 	else:
 		Alex: You're the network wizard, {{player_name}}!
 		
 else:
 	Alex: Wazuzup mananap! Seems like a great time to spaghettify some ethernet cables!!!
 	Alex: Just kidding! HaHaHa!!!
-set is_on_dialogue = false
 => END

@@ -8,7 +8,6 @@ var target_device: Vector2
 func setup_astar(astar: AStarGrid2D, tile_map: TileMap, tile_map_layer: int, paint_property: String):
 	
 	astar.region = tile_map.get_used_rect()
-	print(astar.region)
 	astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar.update()

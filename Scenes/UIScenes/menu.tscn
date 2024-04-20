@@ -76,10 +76,9 @@ size_flags_vertical = 4
 theme_override_constants/separation = 32
 
 [node name="NewGame" parent="MG/VB/HB" instance=ExtResource("3_uyy33")]
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-
-[node name="Label" parent="MG/VB/HB/NewGame" index="0"]
-text = "New game"
+text = "NEW GAME"
 
 [node name="LoadGame" type="Button" parent="MG/VB/HB"]
 unique_name_in_owner = true

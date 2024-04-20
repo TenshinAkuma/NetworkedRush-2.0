@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://x51gvo5iiva0"]
+
+[ext_resource type="Texture2D" uid="uid://dux73gk24u61g" path="res://Assets/Tilesheets/Interface/Modern_UI_Style_2_32x32.png" id="1_gyjwy"]
+[ext_resource type="Script" path="res://Scenes/UIScenes/certificate.gd" id="1_u877r"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="2_fv1ub"]
+[ext_resource type="Texture2D" uid="uid://di06xua4ayrdw" path="res://Assets/Tilesheets/InteriorProps/Modern_Office_Shadowless_32x32.png" id="3_8giu3"]
+[ext_resource type="FontFile" uid="uid://c7dcfakj1xiji" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="4_di1ng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n63b"]
+atlas = ExtResource("1_gyjwy")
+region = Rect2(24, 468, 48, 52)
+
+[node name="Certificate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u877r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.0588235, 0.0627451, 0.0980392, 0.498039)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 64.0
+offset_right = 416.0
+offset_bottom = 288.0
+texture = SubResource("AtlasTexture_1n63b")
+region_rect = Rect2(0, 0, 48, 52)
+patch_margin_left = 16
+patch_margin_top = 20
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MG" type="MarginContainer" parent="ColorRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 16
+
+[node name="VB" type="VBoxContainer" parent="ColorRect/NinePatchRect/MG"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/NinePatchRect/MG/VB"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fv1ub")
+theme_override_font_sizes/font_size = 16
+text = "You have obtained"
+horizontal_alignment = 1
+
+[node name="Cert" type="NinePatchRect" parent="ColorRect/NinePatchRect/MG/VB"]
+custom_minimum_size = Vector2(32, 96)
+layout_mode = 2
+texture = ExtResource("3_8giu3")
+region_rect = Rect2(224, 276, 32, 32)
+patch_margin_left = 8
+patch_margin_top = 4
+patch_margin_right = 8
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="ColorRect/NinePatchRect/MG/VB/Cert"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+offset_left = -4.0
+offset_right = 156.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.972549, 0.823529, 0.223529, 1)
+theme_override_colors/font_shadow_color = Color(0.858824, 0.52549, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/line_spacing = -14
+theme_override_fonts/font = ExtResource("4_di1ng")
+theme_override_font_sizes/font_size = 32
+text = "Star Wizar"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="ColorRect/NinePatchRect/MG/VB"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fv1ub")
+theme_override_font_sizes/font_size = 16
+text = "For succesfully accomplishing your star network task.
+
+collect other title to unlock
+Wide Area Networld"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

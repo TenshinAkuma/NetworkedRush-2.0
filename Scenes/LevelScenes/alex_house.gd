@@ -13,7 +13,7 @@ var is_show_line_preview: bool = false
 var start_device: Vector2
 
 func _ready():
-	if SceneManager.target_spawn_tag:
+	if SceneManager.target_spawn_tag != "":
 		on_spawn(SceneManager.target_spawn_tag)
 
 		
@@ -26,14 +26,13 @@ func _process(_delta):
 		if TaskManager.current_objective_id == 2:
 			$Devices/Router.monitoring = true
 			$Devices/PC.monitoring = true
+			$Devices/TV.monitoring = false
 			device_detection_layer = 5
 		elif TaskManager.current_objective_id == 3:
 			$Devices/TV.monitoring = true
 			$Devices/Router.monitoring = true
+			$Devices/PC.monitoring = false
 			device_detection_layer = 6
-		else:
-			$Devices/Router.monitoring = false
-			$Devices/TV.monitoring = false
 			
 	if is_show_line_preview:
 		var end_position = $Player.global_position

@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://x51gvo5iiva0"]
+
+[ext_resource type="Script" path="res://Scenes/UIScenes/certificate.gd" id="1_u877r"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="2_fv1ub"]
+[ext_resource type="FontFile" uid="uid://c7dcfakj1xiji" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="4_di1ng"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnuqy"]
+bg_color = Color(0.0588235, 0.0627451, 0.0980392, 0.686275)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Certificate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u877r")
+
+[node name="ColorRect" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -48.0
+offset_right = 160.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hnuqy")
+
+[node name="MG" type="MarginContainer" parent="ColorRect"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 16
+
+[node name="VB" type="VBoxContainer" parent="ColorRect/MG"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/MG/VB"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fv1ub")
+theme_override_font_sizes/font_size = 16
+text = "You have obtained the title"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="ColorRect/MG/VB"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.972549, 0.823529, 0.223529, 1)
+theme_override_colors/font_shadow_color = Color(0.858824, 0.52549, 0.254902, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/line_spacing = -18
+theme_override_fonts/font = ExtResource("4_di1ng")
+theme_override_font_sizes/font_size = 16
+text = "Star Wizard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect/MG/VB"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fv1ub")
+theme_override_font_sizes/font_size = 16
+text = "For succesfully accomplishing your star network task."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

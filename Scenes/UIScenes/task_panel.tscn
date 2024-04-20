@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk1qa3tdvxtwp"]
+
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="1_koqa5"]
+[ext_resource type="Script" path="res://Scenes/UIScenes/task_panel.gd" id="2_2mr18"]
+[ext_resource type="Texture2D" uid="uid://dux73gk24u61g" path="res://Assets/Tilesheets/Interface/Modern_UI_Style_2_32x32.png" id="2_08kmk"]
+[ext_resource type="PackedScene" uid="uid://bs2xbbjdwope6" path="res://Scenes/UIScenes/button.tscn" id="3_86jvk"]
+[ext_resource type="FontFile" uid="uid://b3nfiwmw8fsti" path="res://Assets/Fonts/Pokemon Classic.ttf" id="3_n4mr6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1rfm"]
+atlas = ExtResource("2_08kmk")
+region = Rect2(24, 184, 48, 48)
+
+[node name="TaskPanel" type="NinePatchRect"]
+custom_minimum_size = Vector2(384, 96)
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 416.0
+offset_bottom = 128.0
+texture = SubResource("AtlasTexture_r1rfm")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource("2_2mr18")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(298, 47)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(224, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_shadow_color = Color(0.698039, 0.682353, 0.796078, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_n4mr6")
+theme_override_font_sizes/font_size = 8
+text = "<Title>"
+autowrap_mode = 3
+uppercase = true
+
+[node name="Desciption" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_shadow_color = Color(0.698039, 0.682353, 0.796078, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("1_koqa5")
+theme_override_font_sizes/font_size = 16
+text = "<Description>"
+autowrap_mode = 3
+
+[node name="Accept" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_86jvk")]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Accept"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]

@@ -17,7 +17,6 @@ func save():
 				"taskActive" : TaskManager.is_task_active,
 				"taskID" : TaskManager.current_task_id as int,
 				"objectiveID" : TaskManager.current_objective_id as int,
-				"activeTask" : TaskManager._active_task
 			}
 	}
 	return _game_data
@@ -52,5 +51,16 @@ func load_game():
 		
 		TaskManager.is_task_active = game_data["taskData"]["taskActive"]
 		TaskManager.current_task_id = game_data["taskData"]["taskID"]
-		TaskManager.current_objective_id = game_data["taskData"]["objectiveID"]
-		TaskManager._active_task = game_data["taskData"]["activeTask"]
+		
+		TaskManager.load_objective(game_data["taskData"]["taskID"])
+		print(TaskManager._active_task)
+
+func new_game():
+	PlayerData.player_name = ""
+	PlayerData.player_level = 0
+	PlayerData.player_exp = 0
+	PlayerData.required_exp = 30
+	PlayerData.packets = 0
+	
+	TaskManager.is_task_active = 0
+	TaskManager.current_task_id = 0

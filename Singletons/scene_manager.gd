@@ -4,9 +4,8 @@ signal on_player_spawn(spawn_point: Vector2, spaw_orientation: String)
 signal on_load_level(current_scene, scene_to_load)
 signal on_load_map(current_scene: String, map_to_load: String)
 signal on_back_to_main_menu
+signal on_load_object_scene(object_scene_path)
 
-
-var is_game_paused: bool
 
 var target_spawn_tag: String
 
@@ -39,7 +38,18 @@ func go_to_map(current_scene: String, target_map: String):
 		
 func back_to_main_menu():
 	on_back_to_main_menu.emit()
+	
+	
+func go_to_object_scene(object_scene_name):
+	var object_scene_path
+	
+	match object_scene_name:
+		"player_computer":
+			object_scene_path = load("res://Scenes/UIScenes/computer_screen.tscn").instantiate()
+			
+	if object_scene_path != null:
+		on_load_object_scene.emit(object_scene_path)
 		
 func player_spawn(spawn_point: Vector2, spawn_orientation: Vector2):
 	on_player_spawn.emit(spawn_point, spawn_orientation)
-		
+	target_spawn_tag = ""

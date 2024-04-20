@@ -5,10 +5,6 @@ signal start_game
 signal back_to_menu
 
 
-func _ready():
-	print(%LineEdit.text)
-
-
 func _on_start_game_pressed():
 	if %LineEdit.text == "":
 		$NinePatchRect/MarginContainer/VBoxContainer/Label.text = "Please Enter your character name!"

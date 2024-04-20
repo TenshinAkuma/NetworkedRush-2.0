@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd6sbrlxu4o7t"]
+
+[ext_resource type="Script" path="res://Scenes/UIScenes/computer_screen.gd" id="1_0n31l"]
+[ext_resource type="Texture2D" uid="uid://dux73gk24u61g" path="res://Assets/Tilesheets/Interface/Modern_UI_Style_2_32x32.png" id="1_sgufp"]
+[ext_resource type="PackedScene" uid="uid://bs2xbbjdwope6" path="res://Scenes/UIScenes/button.tscn" id="2_37t53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nidhe"]
+atlas = ExtResource("1_sgufp")
+region = Rect2(24, 468, 48, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekhap"]
+atlas = ExtResource("1_sgufp")
+region = Rect2(120, 568, 48, 48)
+
+[node name="ComputerScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0n31l")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_nidhe")
+patch_margin_left = 12
+patch_margin_top = 16
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Menu" type="NinePatchRect" parent="NinePatchRect/MarginContainer"]
+custom_minimum_size = Vector2(128, 288)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_ekhap")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Tasks" parent="NinePatchRect/MarginContainer/Menu/MarginContainer/VBoxContainer" instance=ExtResource("2_37t53")]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Task"
+
+[node name="Shop" parent="NinePatchRect/MarginContainer/Menu/MarginContainer/VBoxContainer" instance=ExtResource("2_37t53")]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Shop"
+
+[node name="Contents" type="NinePatchRect" parent="NinePatchRect/MarginContainer"]
+custom_minimum_size = Vector2(416, 288)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = SubResource("AtlasTexture_ekhap")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/Contents"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Tasks" type="VBoxContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer"]
+layout_mode = 2

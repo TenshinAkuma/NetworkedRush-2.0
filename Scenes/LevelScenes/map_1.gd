@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready():
 	
-	if SceneManager.target_spawn_tag:
+	if SceneManager.target_spawn_tag != "":
 		on_spawn(SceneManager.target_spawn_tag)
 
 func on_spawn(spawn_tag: String):

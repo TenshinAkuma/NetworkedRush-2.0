@@ -34,16 +34,16 @@ func init_name_input():
 		
 func on_new_game():
 	init_name_input()
-		
 	get_node("CanvasLayer/ColorRect/Menu").queue_free()
 		
 func on_back_to_menu():
 	init_menu()
-	
 	get_node("CanvasLayer/ColorRect/CharNameInput").queue_free()
 	
 	
 func on_start_game():
+	var start_game = GameData.new()
+	start_game.new_game()
 	var current_scene = "MainMenu"
 	var target_scene = "player_apartment"
 	SceneManager.go_to_map(current_scene, target_scene)

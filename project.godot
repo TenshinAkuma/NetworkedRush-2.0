@@ -16,9 +16,7 @@ config/use_custom_user_dir=true
 config/custom_user_dir_name="NetworkedRushGameData"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
-boot_splash/image="res://Assets/UI/Arts/splash.png"
 config/icon="res://icon.svg"
-boot_splash/minimum_display_time=2000
 
 [autoload]
 

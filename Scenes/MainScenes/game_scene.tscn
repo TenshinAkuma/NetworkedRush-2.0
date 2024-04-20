@@ -4,13 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dv270qxtghgae" path="res://Scenes/UIScenes/ui.tscn" id="2_lahuy"]
 
 [node name="GameScene" type="Node2D"]
-process_mode = 1
 script = ExtResource("1_un0ii")
 
 [node name="UI" parent="." instance=ExtResource("2_lahuy")]
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

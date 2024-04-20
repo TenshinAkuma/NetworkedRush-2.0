@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var character_label: RichTextLabel = %CharacterLabel
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
+@onready var portrait: TextureRect = %Portrait
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -32,6 +33,8 @@ var dialogue_line: DialogueLine:
 
 		# The dialogue has finished so close the balloon
 		if not next_dialogue_line:
+			var is_paused = !get_tree().paused
+			get_tree().paused = is_paused
 			queue_free()
 			return
 
@@ -43,6 +46,13 @@ var dialogue_line: DialogueLine:
 
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
+		var portrait_path: String = "res://Dialogue/Characters/%s.png" % dialogue_line.character.to_lower()
+		if FileAccess.file_exists(portrait_path):
+			portrait.texture = load(portrait_path)
+		elif not FileAccess.file_exists(portrait_path) and dialogue_line.character == PlayerData.player_name:
+			portrait.texture = load("res://Dialogue/Characters/player.png")
+		else:
+			portrait.texture = null
 
 		dialogue_label.hide()
 		dialogue_label.dialogue_line = dialogue_line
@@ -95,6 +105,8 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
+	var is_paused = !get_tree().paused
+	get_tree().paused = is_paused
 
 
 ## Go to the next line

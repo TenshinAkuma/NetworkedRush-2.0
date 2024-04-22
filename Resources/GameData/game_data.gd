@@ -14,7 +14,6 @@ func save():
 				"packetPoints" : PlayerData.packets,
 			},
 			"taskData": {
-				"taskActive" : TaskManager.is_task_active,
 				"taskID" : TaskManager.current_task_id as int,
 				"objectiveID" : TaskManager.current_objective_id as int,
 			}
@@ -49,9 +48,8 @@ func load_game():
 		PlayerData.required_exp = game_data["playerData"]["expRequired"]
 		PlayerData.packets = game_data["playerData"]["packetPoints"]
 		
-		TaskManager.is_task_active = game_data["taskData"]["taskActive"]
 		TaskManager.current_task_id = game_data["taskData"]["taskID"]
-		
+		TaskManager.current_objective_id = game_data["taskData"]["objectiveID"]
 		TaskManager.load_objective(game_data["taskData"]["taskID"])
 		print(TaskManager._active_task)
 

@@ -69,10 +69,13 @@ func display_interaction(interaction_hint, is_hint_visible):
 	%Hint.text = interaction_hint
 
 	
-func update_rewards(_packet_points, _exp_points):
-	%Packet.text = str(PlayerData.packets)
-
-
+func update_rewards(packet_points, exp_points):
+	%Packet.text = str(packet_points)
+	%PointsObtained.text = "+ " + str(packet_points) + " packets"
+	%ExpObtained.text = "+ " + str(exp_points) + " Exp"
+	$AnimationPlayer.play("rewards_obtained")
+	
+	
 func _on_settings_btn_pressed():
 	is_paused = !get_tree().paused
 	get_tree().paused = is_paused

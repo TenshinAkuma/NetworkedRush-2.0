@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bvlv3vo07fs8e" path="res://Utils/scene_changer.tscn" id="2_w1rmp"]
 [ext_resource type="PackedScene" uid="uid://cxi3jkrldfnnl" path="res://Scenes/Characters/player.tscn" id="3_kgke5"]
 [ext_resource type="PackedScene" uid="uid://dbe16aftgufjw" path="res://Scenes/UIScenes/pointer.tscn" id="3_tps0n"]
-[ext_resource type="PackedScene" uid="uid://b32lse7v7cri5" path="res://Utils/use_object.tscn" id="4_ar6et"]
+[ext_resource type="Resource" uid="uid://dohg64rvsbjw4" path="res://Dialogue/Computer.dialogue" id="5_4w1sf"]
 [ext_resource type="AudioStream" uid="uid://c8uslurlvldwo" path="res://Assets/BGM/hometown.ogg" id="5_d1pny"]
 [ext_resource type="PackedScene" uid="uid://wlskto781teh" path="res://Utils/dialogue_trigger.tscn" id="6_jn7a0"]
 [ext_resource type="Resource" uid="uid://ciq6v1wmwjro6" path="res://Dialogue/Prologue.dialogue" id="7_6r622"]
@@ -56,10 +56,13 @@ visible = false
 z_index = 4
 position = Vector2(272, 260)
 
-[node name="Computer" parent="TileMap" instance=ExtResource("4_ar6et")]
-object_scene = "player_computer"
-player_action = "use computer"
-interaction_key = "E"
+[node name="Computer" parent="TileMap" instance=ExtResource("6_jn7a0")]
+z_index = 2
+position = Vector2(464, 100)
+dialogue_resource = ExtResource("5_4w1sf")
+dialogue_start = "vargis"
+player_action = "talk to Varjis"
+interaction_key = "T"
 
 [node name="Doors" type="Node" parent="."]
 

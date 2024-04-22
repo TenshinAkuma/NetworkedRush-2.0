@@ -62,5 +62,7 @@ func new_game():
 	PlayerData.required_exp = 30
 	PlayerData.packets = 0
 	
-	TaskManager.is_task_active = 0
 	TaskManager.current_task_id = 0
+	TaskManager.current_objective_id = 0
+	TaskManager._active_task.clear()
+	TaskManager._completed_task.clear()

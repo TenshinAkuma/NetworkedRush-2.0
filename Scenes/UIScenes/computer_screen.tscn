@@ -72,12 +72,6 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Tasks" parent="NinePatchRect/MarginContainer/Menu/MarginContainer/VBoxContainer" instance=ExtResource("2_37t53")]
-custom_minimum_size = Vector2(96, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Task"
-
 [node name="Shop" parent="NinePatchRect/MarginContainer/Menu/MarginContainer/VBoxContainer" instance=ExtResource("2_37t53")]
 custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
@@ -112,13 +106,5 @@ theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
-
-[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer"]
-layout_mode = 2
-horizontal_scroll_mode = 0
-scroll_deadzone = 32
-
-[node name="Tasks" type="VBoxContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/ScrollContainer"]
-layout_mode = 2
 
 [connection signal="pressed" from="NinePatchRect/MarginContainer/Menu/MarginContainer/LogOut" to="." method="_on_log_out_pressed"]

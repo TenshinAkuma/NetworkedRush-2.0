@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dukr2vp4ijkei"]
+[gd_scene load_steps=5 format=3 uid="uid://dukr2vp4ijkei"]
 
 [ext_resource type="FontFile" uid="uid://c7dcfakj1xiji" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="1_nbtvv"]
 [ext_resource type="Script" path="res://Scenes/UIScenes/menu.gd" id="1_yb4hr"]
 [ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="2_btdhu"]
 [ext_resource type="PackedScene" uid="uid://bs2xbbjdwope6" path="res://Scenes/UIScenes/button.tscn" id="3_uyy33"]
-[ext_resource type="StyleBox" uid="uid://cwociavkxmi43" path="res://Resources/Buttons/button_normal.tres" id="4_cbwlp"]
-[ext_resource type="StyleBox" uid="uid://ddojdtcfpnw6t" path="res://Resources/Buttons/button_hover.tres" id="5_luqm8"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -80,83 +78,21 @@ custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 text = "NEW GAME"
 
-[node name="LoadGame" type="Button" parent="MG/VB/HB"]
+[node name="LoadGame" parent="MG/VB/HB" instance=ExtResource("3_uyy33")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 0)
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_colors/font_pressed_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_colors/font_hover_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_colors/font_focus_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_fonts/font = ExtResource("2_btdhu")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = ExtResource("4_cbwlp")
-theme_override_styles/hover = ExtResource("5_luqm8")
-theme_override_styles/pressed = ExtResource("4_cbwlp")
-theme_override_styles/focus = ExtResource("4_cbwlp")
-text = "
-"
+text = "load game"
 
-[node name="Label" type="Label" parent="MG/VB/HB/LoadGame"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_colors/font_shadow_color = Color(0.698039, 0.682353, 0.796078, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("2_btdhu")
-theme_override_font_sizes/font_size = 16
-text = "Load Game"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Exit" type="Button" parent="MG/VB/HB"]
-custom_minimum_size = Vector2(96, 0)
+[node name="Exit" parent="MG/VB/HB" instance=ExtResource("3_uyy33")]
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_colors/font_pressed_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_colors/font_hover_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_colors/font_focus_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_fonts/font = ExtResource("2_btdhu")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = ExtResource("4_cbwlp")
-theme_override_styles/hover = ExtResource("5_luqm8")
-theme_override_styles/pressed = ExtResource("4_cbwlp")
-theme_override_styles/focus = ExtResource("4_cbwlp")
-text = "
-"
-
-[node name="Label" type="Label" parent="MG/VB/HB/Exit"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
-theme_override_colors/font_shadow_color = Color(0.698039, 0.682353, 0.796078, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("2_btdhu")
-theme_override_font_sizes/font_size = 16
-text = "Exit"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+text = "exit"
 
 [connection signal="pressed" from="MG/VB/HB/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MG/VB/HB/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="MG/VB/HB/Exit" to="." method="_on_exit_pressed"]
 
 [editable path="MG/VB/HB/NewGame"]
+[editable path="MG/VB/HB/LoadGame"]
+[editable path="MG/VB/HB/Exit"]

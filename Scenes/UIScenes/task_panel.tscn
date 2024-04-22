@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk1qa3tdvxtwp"]
+[gd_scene load_steps=7 format=3 uid="uid://bey6mvu3ywqqy"]
 
 [ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="1_koqa5"]
-[ext_resource type="Script" path="res://Scenes/UIScenes/task_panel.gd" id="2_2mr18"]
 [ext_resource type="Texture2D" uid="uid://dux73gk24u61g" path="res://Assets/Tilesheets/Interface/Modern_UI_Style_2_32x32.png" id="2_08kmk"]
 [ext_resource type="PackedScene" uid="uid://bs2xbbjdwope6" path="res://Scenes/UIScenes/button.tscn" id="3_86jvk"]
 [ext_resource type="FontFile" uid="uid://b3nfiwmw8fsti" path="res://Assets/Fonts/Pokemon Classic.ttf" id="3_n4mr6"]
@@ -10,8 +9,15 @@
 atlas = ExtResource("2_08kmk")
 region = Rect2(24, 184, 48, 48)
 
-[node name="TaskPanel" type="NinePatchRect"]
-custom_minimum_size = Vector2(384, 96)
+[sub_resource type="GDScript" id="GDScript_cjldf"]
+script/source = "extends NinePatchRect
+
+@export var task_title: String
+@export var task_description: String
+"
+
+[node name="Item" type="NinePatchRect"]
+custom_minimum_size = Vector2(64, 64)
 offset_left = 32.0
 offset_top = 32.0
 offset_right = 416.0
@@ -21,7 +27,7 @@ patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
-script = ExtResource("2_2mr18")
+script = SubResource("GDScript_cjldf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

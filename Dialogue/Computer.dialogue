@@ -1,0 +1,25 @@
+~ vargis
+
+Computer: [[Hello master|Aye aye captian|Eng Engk]]! I am your AI Assistant, Varjis.
+if current_task_id == 0 and current_objective_id == 2:
+	do update_objective(current_task_id)
+Computer: What can I do for you {{player_name}}
+- Open Market
+	Computer: Market is soon to open. 
+- Take task
+	if current_task_id == 0 and current_objective_id == 3:
+		Computer: Alex, the guy who live in the brown house in the left side of this street,
+		Computer: Needs your help setting up his network.
+		Computer: He has a newly bought gaming PC, however he claims that whenever he games, it lags.
+		Computer: Will you help him setup his network?
+	- Let's Go!
+		do update_objective(current_task_id)
+	elif current_task_id == 1 and current_objective_id == 1:
+		AlComputerex: Alex the Tech Guy live in the brown house in the left side of the street.
+		Alex: Uwu >_<
+	else:
+		Computer: No task is availble for the meantime sir.
+- I have a joke for you hehe 0_o
+	Alex: Life is like a Trojan virus, full of surprises :()
+
+=> END

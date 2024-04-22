@@ -6,6 +6,7 @@ signal on_load_game
 signal on_show_cert
 
 var is_show_pointer: bool
+var is_new_game: bool
 
 func start_dialogue(dialogue_resource: DialogueResource, dialogue_start: String):
 	on_start_dialogue.emit(dialogue_resource, dialogue_start)

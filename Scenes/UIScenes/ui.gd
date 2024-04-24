@@ -35,14 +35,15 @@ func _ready():
 		
 	if not SceneManager.on_load_object_scene.is_connected(load_object_scene):
 		SceneManager.on_load_object_scene.connect(load_object_scene)
-
+		
 
 func load_object_scene(object_scene_path):
 	get_node("HUD").add_child(object_scene_path)
 
-func show_cert():
+func show_cert(title: String):
 	var cert = load("res://Scenes/UIScenes/certificate.tscn").instantiate()
 	cert.name = "Certificate"
+	cert.title = title
 	add_child(cert)
 	
 func start_dialogue(dialogue_resource, dialogue_start):
@@ -70,7 +71,7 @@ func display_interaction(interaction_hint, is_hint_visible):
 
 	
 func update_rewards(packet_points, exp_points):
-	%Packet.text = str(packet_points)
+	%Packet.text = str(PlayerData.packets)
 	%PointsObtained.text = "+ " + str(packet_points) + " packets"
 	%ExpObtained.text = "+ " + str(exp_points) + " Exp"
 	$AnimationPlayer.play("rewards_obtained")

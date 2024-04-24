@@ -7,7 +7,7 @@ signal on_update_rewards(packet_points: int, exp_points: int)
 var _completed_task: Dictionary = {}
 var _active_task: Dictionary = {}
 
-var current_task_id: int = 0
+var current_task_id: int = 2
 var current_objective_id: int = 0
 
 var _tasks: Dictionary = {
@@ -16,7 +16,6 @@ var _tasks: Dictionary = {
 		"currentObjective" : 0,
 		"reward" : 300,
 		"exp" : 25,
-		"description" : "",
 		"objectives" : {
 			1 : "Answer the telephone and talk to The Developer",
 			2 : "Check your computer to view tasks.",
@@ -29,23 +28,27 @@ var _tasks: Dictionary = {
 		"reward" : 100,
 		"exp" : 25,
 		"title" : "Star Wizard",
-		"description" : "Alex wants to set up a wired network connection for his new PC to optimize internet speed and reduce lag during online gaming sessions. He also wants to connect his TV to the network.",
 		"objectives" : {
 			1 : "Diagnose the problem with Alex.",
 			2 : "Establish a single wired connection from the router the the PC.",
 			3 : "Create a wired connection between the router and the TV.",
-			4 : "Talk to alex to get your reward."
+			4 : "Talk to alex to get your reward.",
 		},
 	},
 	2 : {
 		"name" : "The Lord of the Rings",
 		"currentObjective" : 0,
 		"reward" : 200,
-		"exp" : 30,
+		"exp" : 50,
 		"title" : "Lord of the Rings",
 		"description" : "",
 		"objectives" : {
-			1: "Consult with Ms. Pierre"
+			1 : "Ask Varjis, your AI assistant, if there's another task",
+			2 : "Consult with Ms. Pierre about her request",
+			3 : "Connect PC 1 to PC 2",
+			4 : "Connect PC 2 to PC 3",
+			5 : "Connect PC 3 to PC 1",
+			6 : "Talk to Ms. Pierre to get rewards"
 		},
 	}
 }
@@ -70,6 +73,8 @@ func update_objective(task_id: int):
 		
 func task_completed(task_id: int):
 	task_reward(task_id)
+	if TaskManager._active_task[task_id].has("title"):
+		GameManager.on_show_cert.emit(TaskManager._active_task[task_id]["title"])
 	_completed_task.merge(_tasks[task_id], true)
 	_active_task.erase(task_id)
 	

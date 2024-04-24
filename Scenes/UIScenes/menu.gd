@@ -15,6 +15,8 @@ func _ready():
 		
 func _on_new_game_pressed():
 	new_game_pressed.emit()
+	var new_game = GameData.new()
+	new_game.new_game()
 
 
 func _on_exit_pressed():

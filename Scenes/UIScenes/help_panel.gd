@@ -19,6 +19,10 @@ func show_help(image: String, is_help_visible: bool):
 			%HelpTitle.text = "Star Network"
 			%Image.texture = load("res://Assets/UI/Arts/images.png")
 			%Info.text = "A star topology, sometimes known as a star network, is a network topology in which each device is connected to a central hub. It is one of the most prevalent computer network configurations, and it's by far the most popular Network Topology. In this network arrangement, all devices linked to a central network device are displayed as a star."
+		"ring":
+			%HelpTitle.text = "Ring Network"
+			%Image.texture = load("res://Assets/UI/Arts/ring.png")
+			%Info.text = "A ring network is a network topology in which each node connects to exactly two other nodes, forming a single continuous pathway for signals through each node – a ring. Data travels from node to node, with each node along the way handling every packet."
 			
 	if is_help_visible:
 		show()

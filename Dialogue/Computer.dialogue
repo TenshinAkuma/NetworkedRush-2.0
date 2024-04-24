@@ -17,6 +17,13 @@ Computer: What can I do for you {{player_name}}
 	elif current_task_id == 1 and current_objective_id == 1:
 		AlComputerex: Alex the Tech Guy live in the brown house in the left side of the street.
 		Alex: Uwu >_<
+	elif current_task_id == 2 and current_objective_id == 1:
+		Computer: AYE AYE MISTER. Ms. Pierre, the lady who owns a house office downstairs
+		Computer: She Needs your help setting up his network.
+		Computer: She has three (3) PC's that she want to share a network.
+		Computer: Will you help her setup his network?
+	- C'mon. Let's get going!
+		do update_objective(current_task_id)
 	else:
 		Computer: No task is availble for the meantime sir.
 - I have a joke for you hehe 0_o

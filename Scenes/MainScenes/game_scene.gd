@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _ready():
 	
 	if not SceneManager.on_load_level.is_connected(load_level):

@@ -42,8 +42,6 @@ func on_back_to_menu():
 	
 	
 func on_start_game():
-	var start_game = GameData.new()
-	start_game.new_game()
 	var current_scene = "MainMenu"
 	var target_scene = "player_apartment"
 	SceneManager.go_to_map(current_scene, target_scene)

@@ -75,7 +75,7 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fv1ub")
 theme_override_font_sizes/font_size = 16
-text = "For succesfully accomplishing your star network task."
+text = "For succesfully completing your  task."
 horizontal_alignment = 1
 autowrap_mode = 3
 

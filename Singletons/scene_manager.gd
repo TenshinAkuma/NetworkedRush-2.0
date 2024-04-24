@@ -5,6 +5,7 @@ signal on_load_level(current_scene, scene_to_load)
 signal on_load_map(current_scene: String, map_to_load: String)
 signal on_back_to_main_menu
 signal on_load_object_scene(object_scene_path)
+signal on_transition_scene(animation: String)
 
 
 var target_spawn_tag: String

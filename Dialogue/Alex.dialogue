@@ -33,7 +33,6 @@ if current_task_id == 1:
 		Alex: Here's your reward man!
 		do update_objective(current_task_id)
 		{{player_name}}: [[Thank you man|No problem|Ako lang to]]!
-		do on_show_cert.emit()
 	else:
 		Alex: You're the network wizard, {{player_name}}!
 		

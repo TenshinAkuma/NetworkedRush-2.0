@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://bryee2fd05xp6"]
+
+[ext_resource type="Script" path="res://Scenes/UIScenes/load_game_scene.gd" id="1_w20pd"]
+[ext_resource type="PackedScene" uid="uid://cg4xfm6budepy" path="res://Scenes/UIScenes/load_game_slot.tscn" id="1_wqy2h"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="3_wfsso"]
+[ext_resource type="PackedScene" uid="uid://bs2xbbjdwope6" path="res://Scenes/UIScenes/button.tscn" id="4_5170g"]
+
+[node name="LoadGameScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w20pd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0627451, 0.0980392, 0.498039)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("3_wfsso")
+theme_override_font_sizes/font_size = 32
+text = "Start Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="LoadGameSlot" parent="ColorRect/MarginContainer/HBoxContainer" instance=ExtResource("1_wqy2h")]
+layout_mode = 2
+file_path = "user://save_game1.save"
+
+[node name="LoadGameSlot2" parent="ColorRect/MarginContainer/HBoxContainer" instance=ExtResource("1_wqy2h")]
+layout_mode = 2
+file_path = "user://save_game2.save"
+
+[node name="LoadGameSlot3" parent="ColorRect/MarginContainer/HBoxContainer" instance=ExtResource("1_wqy2h")]
+layout_mode = 2
+file_path = "user://save_game3.save"
+
+[node name="Back" parent="ColorRect/MarginContainer" instance=ExtResource("4_5170g")]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/Back" to="." method="_on_back_pressed"]

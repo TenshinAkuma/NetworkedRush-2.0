@@ -76,23 +76,15 @@ theme_override_constants/separation = 32
 [node name="NewGame" parent="MG/VB/HB" instance=ExtResource("3_uyy33")]
 custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
-text = "NEW GAME"
-
-[node name="LoadGame" parent="MG/VB/HB" instance=ExtResource("3_uyy33")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 32)
-layout_mode = 2
-text = "load game"
+text = "Start Game"
 
 [node name="Exit" parent="MG/VB/HB" instance=ExtResource("3_uyy33")]
 custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 text = "exit"
 
-[connection signal="pressed" from="MG/VB/HB/NewGame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="MG/VB/HB/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="MG/VB/HB/NewGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MG/VB/HB/Exit" to="." method="_on_exit_pressed"]
 
 [editable path="MG/VB/HB/NewGame"]
-[editable path="MG/VB/HB/LoadGame"]
 [editable path="MG/VB/HB/Exit"]

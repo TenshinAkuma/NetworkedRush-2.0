@@ -22,17 +22,17 @@ func _ready():
 		
 func _process(_delta):
 	if !TaskManager._active_task.is_empty() and TaskManager._active_task.has(2):
-		if TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 2:
+		if TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 3:
 			device_detection_layer = 6
 			$Devices/PC1.monitoring = true
 			$Devices/PC2.monitoring = true
 			$Devices/PC3.monitoring = false
-		elif TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 3:
+		elif TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 4:
 			device_detection_layer = 7
 			$Devices/PC1.monitoring = false
 			$Devices/PC2.monitoring = true
 			$Devices/PC3.monitoring = true
-		elif TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 4:
+		elif TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 5:
 			device_detection_layer = 5
 			$Devices/PC1.monitoring = true
 			$Devices/PC2.monitoring = false
@@ -86,13 +86,13 @@ func verify_connection(end_point: Vector2):
 	
 	connect_device.create_line(astar, tile_map, start_connection, end_connection, device_cable)
 	
-	if TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 2 and end_point.is_equal_approx($Devices/PC2.get_node("DevicePosition").global_position):
+	if TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 3 and end_point.is_equal_approx($Devices/PC2.get_node("DevicePosition").global_position):
 		get_node("Cables").add_child(device_cable)
 		TaskManager.update_objective(TaskManager.current_task_id)
-	elif TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 3 and end_point.is_equal_approx($Devices/PC3.get_node("DevicePosition").global_position):
+	elif TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 4 and end_point.is_equal_approx($Devices/PC3.get_node("DevicePosition").global_position):
 		get_node("Cables").add_child(device_cable)
 		TaskManager.update_objective(TaskManager.current_task_id)
-	elif TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 4 and end_point.is_equal_approx($Devices/PC1.get_node("DevicePosition").global_position):
+	elif TaskManager._active_task[TaskManager.current_task_id]["currentObjective"] == 5 and end_point.is_equal_approx($Devices/PC1.get_node("DevicePosition").global_position):
 		get_node("Cables").add_child(device_cable)
 		TaskManager.update_objective(TaskManager.current_task_id)
 	else:

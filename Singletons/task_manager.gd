@@ -16,6 +16,7 @@ var _tasks: Dictionary = {
 		"currentObjective" : 0,
 		"reward" : 300,
 		"exp" : 25,
+		"title" : "Beginner",
 		"objectives" : {
 			1 : "Answer the telephone and talk to The Developer",
 			2 : "Check your computer to view tasks.",
@@ -56,6 +57,8 @@ var _tasks: Dictionary = {
 func add_task(task_id: int):
 	if task_id in _tasks.keys():
 		_active_task[task_id] = _tasks[task_id]
+	else:
+		current_task_id = task_id - 1
 		
 	if _active_task.has(task_id):
 		var task_name = _active_task[task_id]["name"]
@@ -84,9 +87,11 @@ func task_completed(task_id: int):
 func task_reward(task_id: int):
 	var packet_points = _active_task[task_id]["reward"]
 	var exp_points = _active_task[task_id]["exp"]
+	var title = _active_task[task_id]["title"]
 	
 	PlayerData.update_reward(packet_points, exp_points)
 	UIManager.update_rewards(packet_points, exp_points)
+	PlayerData.add_player_title(title)
 	
 	
 func load_objective(task_id: int):

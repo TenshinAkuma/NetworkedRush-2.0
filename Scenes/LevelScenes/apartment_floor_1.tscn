@@ -75,7 +75,9 @@ dialogue_start = "pierre_ring_task"
 player_action = "talk to Ms. Pierre"
 interaction_key = "T"
 
-[node name="Label" type="Label" parent="TileMap"]
+[node name="Labels" type="Node" parent="TileMap"]
+
+[node name="MsPierre" type="Label" parent="TileMap/Labels"]
 z_index = 3
 offset_left = 264.0
 offset_top = 12.0

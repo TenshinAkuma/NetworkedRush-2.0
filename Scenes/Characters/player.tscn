@@ -1,8 +1,9 @@
-[gd_scene load_steps=78 format=3 uid="uid://cxi3jkrldfnnl"]
+[gd_scene load_steps=79 format=3 uid="uid://cxi3jkrldfnnl"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/player.gd" id="1_jbyqb"]
 [ext_resource type="Texture2D" uid="uid://cqpebqyor663b" path="res://Assets/Tilesheets/Characters/Player.png" id="1_kf1of"]
 [ext_resource type="PackedScene" uid="uid://bdtqjexv4r6xf" path="res://Scenes/Characters/player_camera.tscn" id="3_ojsp3"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="4_x17dd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5g13v"]
 atlas = ExtResource("1_kf1of")
@@ -733,3 +734,20 @@ parameters/idle/blend_position = Vector2(-0.182553, 0.580088)
 parameters/run/blend_position = Vector2(-0.323102, 0.272993)
 
 [node name="PlayerCamera" parent="." instance=ExtResource("3_ojsp3")]
+
+[node name="NameTag" type="Label" parent="."]
+custom_minimum_size = Vector2(128, 12)
+offset_left = -64.0
+offset_top = -44.0
+offset_right = 64.0
+offset_bottom = -32.0
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("4_x17dd")
+theme_override_font_sizes/font_size = 16
+text = "<Player name>"
+horizontal_alignment = 1
+vertical_alignment = 1

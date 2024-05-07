@@ -4,10 +4,10 @@ signal on_display_objective(objective_description: String)
 signal on_display_task_name(task_name: String)
 signal on_update_rewards(packet_points: int, exp_points: int)
 
-var _completed_task: Dictionary = {}
+var _completed_task: Array = []
 var _active_task: Dictionary = {}
 
-var current_task_id: int = 2
+var current_task_id: int = 0
 var current_objective_id: int = 0
 
 var _tasks: Dictionary = {
@@ -42,7 +42,6 @@ var _tasks: Dictionary = {
 		"reward" : 200,
 		"exp" : 50,
 		"title" : "Lord of the Rings",
-		"description" : "",
 		"objectives" : {
 			1 : "Ask Varjis, your AI assistant, if there's another task",
 			2 : "Consult with Ms. Pierre about her request",
@@ -55,34 +54,35 @@ var _tasks: Dictionary = {
 }
 
 func add_task(task_id: int):
+	print(task_id)
 	if task_id in _tasks.keys():
 		_active_task[task_id] = _tasks[task_id]
 	else:
-		current_task_id = task_id - 1
+		return
 		
 	if _active_task.has(task_id):
-		var task_name = _active_task[task_id]["name"]
-		update_objective(task_id)
-		UIManager.update_task(task_name, _active_task[task_id]["objectives"][current_objective_id])
+		await update_objective(task_id)
+	else:
+		return
 
 func update_objective(task_id: int):
 	_active_task[task_id]["currentObjective"] += 1
-	current_objective_id = _active_task[task_id]["currentObjective"]
+	current_objective_id = int(_active_task[task_id]["currentObjective"])
 	if current_objective_id in _active_task[task_id]["objectives"].keys():
 		var objective_description: String = _active_task[task_id]["objectives"][current_objective_id]
 		UIManager.update_task(_active_task[task_id]["name"], objective_description)
 	else:
-		task_completed(task_id)
+		await task_completed(task_id)
 		
 func task_completed(task_id: int):
-	task_reward(task_id)
-	if TaskManager._active_task[task_id].has("title"):
-		GameManager.on_show_cert.emit(TaskManager._active_task[task_id]["title"])
-	_completed_task.merge(_tasks[task_id], true)
+	print("current objective id: " + str(current_objective_id))
+	current_objective_id = 0
+	await task_reward(task_id)
+	_completed_task.append(_active_task[task_id]["name"])
 	_active_task.erase(task_id)
 	
 	current_task_id += 1
-	add_task(current_task_id)
+	await add_task(current_task_id)
 	
 func task_reward(task_id: int):
 	var packet_points = _active_task[task_id]["reward"]

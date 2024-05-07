@@ -352,11 +352,13 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_eb16d")
 
 [node name="Settings" parent="HUD/MG" instance=ExtResource("6_k7sni")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="HelpPanel" parent="HUD/MG" instance=ExtResource("9_d4cv1")]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 layout_mode = 2
 
 [node name="TaskNotif" type="PanelContainer" parent="."]

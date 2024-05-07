@@ -60,6 +60,7 @@ func display_objective(_task_name: String, objective_description: String):
 	%Objective.text = "<" + objective_description + ">"
 	$ObjectiveTimer.start()
 	%TaskNotif.show()
+	print(str(TaskManager.current_task_id) + " " + str(TaskManager.current_objective_id))
 	
 func _on_objective_timer_timeout():
 	%TaskNotif.hide()

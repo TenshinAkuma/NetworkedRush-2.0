@@ -27,4 +27,5 @@ func update_reward(packet_points: int, exp_points: int):
 func add_player_title(title: String):
 	titles.append(title)
 	if not titles.is_empty():
-		current_title = titles[titles.size() - 1] 
+		current_title = titles[titles.size() - 1]
+		GameManager.on_show_cert.emit(current_title)

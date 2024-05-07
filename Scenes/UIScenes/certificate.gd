@@ -1,6 +1,6 @@
 extends Control
 
-@export var title: String
+var title: String
 
 func _ready():
 	$ColorRect/MG/VB/Title.text = title

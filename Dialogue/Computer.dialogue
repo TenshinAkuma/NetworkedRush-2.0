@@ -12,8 +12,8 @@ Computer: What can I do for you {{player_name}}
 		Computer: Needs your help setting up his network.
 		Computer: He has a newly bought gaming PC, however he claims that whenever he games, it lags.
 		Computer: Will you help him setup his network?
-	- Let's Go!
-		do update_objective(current_task_id)
+		- Let's Go!
+			do update_objective(current_task_id)
 	elif current_task_id == 1 and current_objective_id == 1:
 		AlComputerex: Alex the Tech Guy live in the brown house in the left side of the street.
 		Alex: Uwu >_<
@@ -22,8 +22,8 @@ Computer: What can I do for you {{player_name}}
 		Computer: She Needs your help setting up his network.
 		Computer: She has three (3) PC's that she want to share a network.
 		Computer: Will you help her setup his network?
-	- C'mon. Let's get going!
-		do update_objective(current_task_id)
+		- C'mon. Let's get going!
+			do update_objective(current_task_id)
 	else:
 		Computer: No task is availble for the meantime sir.
 - I have a joke for you hehe 0_o

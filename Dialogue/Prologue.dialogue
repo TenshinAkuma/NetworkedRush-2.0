@@ -29,7 +29,7 @@ if TaskManager.current_task_id == 0:
 		- *Non-chalantly.... yeah =|
 			Developer: okay........?
 			Developer: Anyway,let's get going.
-		Developer: Check your computer too see available tasks.
+			Developer: Check your computer too see available tasks.
 		do point_object("PhonePointer", false)
 		do update_objective(current_task_id)
 	else:

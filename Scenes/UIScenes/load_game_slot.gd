@@ -6,7 +6,6 @@ func _ready():
 	if not FileAccess.file_exists(file_path):
 		$LoadGameContainer.hide()
 		$NewGameContainer.show()
-		return
 	else:
 		var load_game = GameData.new()
 		load_game.load_game(file_path)
@@ -19,7 +18,8 @@ func _ready():
 		var last_task_id = int(load_data["taskData"]["taskID"])
 		var last_objective_id = int(load_data["taskData"]["objectiveID"])
 		if last_task_id in TaskManager._tasks.keys():
-			%LastObjective.text = TaskManager._tasks[last_task_id]["objectives"][last_objective_id]
+			if last_objective_id in TaskManager._tasks[last_task_id]["objectives"].keys():
+				%LastObjective.text = TaskManager._tasks[last_task_id]["objectives"][last_objective_id]
 		else:
 			%LastObjective.text = "No Pending Task"
 
@@ -29,6 +29,7 @@ func _on_load_pressed():
 	load_game.load_game(file_path)
 	var _game_data = load_game.game_data
 	load_game.load_game_data(_game_data)
+	TaskManager.load_objective(_game_data["taskData"]['taskID'])
 	GameManager.save_path = file_path
 	
 	
@@ -49,8 +50,6 @@ func _on_delete_pressed():
 
 
 func _on_new_game_pressed():
-	var new_game = GameData.new()
-	new_game.reset_data()
 	GameManager.save_path = file_path
 	
 	var input_name_scene = load("res://Scenes/UIScenes/input_player_name.tscn").instantiate()

@@ -736,6 +736,7 @@ parameters/run/blend_position = Vector2(-0.323102, 0.272993)
 [node name="PlayerCamera" parent="." instance=ExtResource("3_ojsp3")]
 
 [node name="NameTag" type="Label" parent="."]
+z_index = 4
 custom_minimum_size = Vector2(128, 12)
 offset_left = -64.0
 offset_top = -44.0

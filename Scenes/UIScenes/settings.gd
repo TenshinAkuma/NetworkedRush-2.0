@@ -29,7 +29,6 @@ func update_task(task_name, objective_description):
 func _on_save_pressed():
 	var game_data = GameData.new()
 	var save_file_path = GameManager.save_path
-	print(save_file_path)
 	game_data.save_game(save_file_path)
 	
 

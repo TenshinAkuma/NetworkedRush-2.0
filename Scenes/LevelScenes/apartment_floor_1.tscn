@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3seluwhmlbll"]
+[gd_scene load_steps=11 format=3 uid="uid://c3seluwhmlbll"]
 
 [ext_resource type="TileSet" uid="uid://cuciy0utkrr5c" path="res://Resources/TileMaps/interior_player_house.tres" id="1_ulgcd"]
 [ext_resource type="Script" path="res://Scenes/LevelScenes/apartment_floor_1.gd" id="1_xrxkb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://c43ej1cuw1ixh" path="res://Dialogue/Pierre.dialogue" id="4_w083q"]
 [ext_resource type="AudioStream" uid="uid://ddlcpxyjfmfdb" path="res://Assets/BGM/Morning of Beginnings.ogg" id="5_dr3x3"]
 [ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="5_m8xkh"]
+[ext_resource type="PackedScene" uid="uid://c2lrr3e7whvxr" path="res://Scenes/UIScenes/device_label.tscn" id="6_dh82h"]
 [ext_resource type="PackedScene" uid="uid://cs42lcpvqgfp0" path="res://Utils/connect_device.tscn" id="6_g5b70"]
 
 [node name="ApartmentFloor1" type="Node2D"]
@@ -89,6 +90,65 @@ text = "Ms. Pierre"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Server" parent="TileMap/Labels" instance=ExtResource("6_dh82h")]
+z_index = 4
+offset_left = 400.0
+offset_top = 72.0
+offset_right = 440.0
+offset_bottom = 112.0
+device_name = "Server"
+
+[node name="DeviceName" parent="TileMap/Labels/Server" index="0"]
+anchor_left = -0.95
+anchor_top = -1.9
+anchor_right = 0.95
+anchor_bottom = -1.4
+
+[node name="PC1" parent="TileMap/Labels" instance=ExtResource("6_dh82h")]
+z_index = 4
+offset_left = 312.0
+offset_top = 224.0
+offset_right = 352.0
+offset_bottom = 264.0
+device_name = "PC 1"
+
+[node name="DeviceName" parent="TileMap/Labels/PC1" index="0"]
+anchor_left = -0.5
+anchor_top = -1.9
+anchor_right = 1.4
+anchor_bottom = -1.4
+text = ""
+
+[node name="PC2" parent="TileMap/Labels" instance=ExtResource("6_dh82h")]
+z_index = 4
+offset_left = 528.0
+offset_top = 220.0
+offset_right = 568.0
+offset_bottom = 260.0
+device_name = "PC 2"
+
+[node name="DeviceName" parent="TileMap/Labels/PC2" index="0"]
+anchor_left = -1.0
+anchor_top = -1.7
+anchor_right = 0.9
+anchor_bottom = -1.2
+text = ""
+
+[node name="PC3" parent="TileMap/Labels" instance=ExtResource("6_dh82h")]
+z_index = 4
+offset_left = 432.0
+offset_top = 140.0
+offset_right = 472.0
+offset_bottom = 180.0
+device_name = "PC 3"
+
+[node name="DeviceName" parent="TileMap/Labels/PC3" index="0"]
+anchor_left = -1.0
+anchor_top = -0.3
+anchor_right = 0.9
+anchor_bottom = 0.2
+text = ""
+
 [node name="Player" parent="." instance=ExtResource("3_5qkha")]
 z_index = 2
 y_sort_enabled = true
@@ -154,6 +214,10 @@ process_mode = 3
 stream = ExtResource("5_dr3x3")
 autoplay = true
 
+[editable path="TileMap/Labels/Server"]
+[editable path="TileMap/Labels/PC1"]
+[editable path="TileMap/Labels/PC2"]
+[editable path="TileMap/Labels/PC3"]
 [editable path="Player"]
 [editable path="Player/PlayerCamera"]
 [editable path="Doors/to_floor_2"]

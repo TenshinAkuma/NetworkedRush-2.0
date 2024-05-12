@@ -6,7 +6,6 @@ Telephone: RingDingDongRingDingAlingdingdongogaskncasn!!!
 Telephone: Answer ME!!!
 Telephone: Answer ME!!!
 do add_task(current_task_id)
-do point_object("PhonePointer", true)
 
 => END
 
@@ -30,7 +29,6 @@ if TaskManager.current_task_id == 0:
 			Developer: okay........?
 			Developer: Anyway,let's get going.
 			Developer: Check your computer too see available tasks.
-		do point_object("PhonePointer", false)
 		do update_objective(current_task_id)
 	else:
 		Telephone: dit . dit . dit.

@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://k1ogpdjqaxsb"]
+[gd_scene load_steps=12 format=3 uid="uid://k1ogpdjqaxsb"]
 
 [ext_resource type="Script" path="res://Scenes/LevelScenes/alex_house.gd" id="1_3akiq"]
 [ext_resource type="TileSet" uid="uid://clfvp2riofna1" path="res://Resources/TileMaps/interior_tilemap.tres" id="2_3ay3f"]
-[ext_resource type="PackedScene" uid="uid://dbe16aftgufjw" path="res://Scenes/UIScenes/pointer.tscn" id="3_frucp"]
 [ext_resource type="PackedScene" uid="uid://c2lrr3e7whvxr" path="res://Scenes/UIScenes/device_label.tscn" id="4_f23at"]
 [ext_resource type="PackedScene" uid="uid://cxi3jkrldfnnl" path="res://Scenes/Characters/player.tscn" id="5_x8o1q"]
 [ext_resource type="PackedScene" uid="uid://bvlv3vo07fs8e" path="res://Utils/scene_changer.tscn" id="14_4re57"]
@@ -50,18 +49,6 @@ position = Vector2(88, -272)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/StaticBody2D"]
 polygon = PackedVector2Array(104, 592, 168, 592, 168, 568, 176, 568, 176, 600, 96, 600, 96, 568, 104, 568)
-
-[node name="RouterPointer" parent="TileMap" instance=ExtResource("3_frucp")]
-z_index = 4
-position = Vector2(144, 192)
-
-[node name="PCPointer" parent="TileMap" instance=ExtResource("3_frucp")]
-z_index = 4
-position = Vector2(144, -168)
-
-[node name="TVPointer" parent="TileMap" instance=ExtResource("3_frucp")]
-z_index = 4
-position = Vector2(432, 144)
 
 [node name="Router" parent="TileMap" instance=ExtResource("4_f23at")]
 z_index = 4

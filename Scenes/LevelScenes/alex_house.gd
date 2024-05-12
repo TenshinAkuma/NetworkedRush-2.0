@@ -33,6 +33,10 @@ func _process(_delta):
 			$Devices/Router.monitoring = true
 			$Devices/PC.monitoring = false
 			device_detection_layer = 6
+	else:
+		$Devices/Router.monitoring = false
+		$Devices/PC.monitoring = false
+		$Devices/TV.monitoring = false
 			
 	if is_show_line_preview:
 		var end_position = $Player.global_position

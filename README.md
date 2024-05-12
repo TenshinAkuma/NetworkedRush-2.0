@@ -44,6 +44,6 @@ This repository holds the codebase for a 2D, single-player, RPG simulation game 
   *  **Extract the zip file
   *  **then run the .exe file
 
-* Runnin the game on [Itch.io](https://tenshinakuma10.itch.io/networked-rush)
+* Running the game on [Itch.io](https://tenshinakuma10.itch.io/networked-rush)
   *  **Proceed to the link on Itch.io
   *  **then click the run game

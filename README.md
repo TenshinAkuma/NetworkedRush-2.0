@@ -1,4 +1,4 @@
-## NetworkEd Rush: A Gamified Approach to Network Learning
+## NetworkEd Rush: A Game-Based Learning Approach to Learn Network Topologies
 
 **Welcome to NetworkEd Rush!**
 

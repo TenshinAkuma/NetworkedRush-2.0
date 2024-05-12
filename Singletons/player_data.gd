@@ -7,6 +7,9 @@ var player_level: int = 0
 var packets: int = 0
 var player_exp: int = 0
 var required_exp: int = 30
+var titles: Array
+var current_title: String
+
 
 func update_reward(packet_points: int, exp_points: int):
 	packets += packet_points
@@ -20,3 +23,9 @@ func update_reward(packet_points: int, exp_points: int):
 		on_update_player_level.emit(player_level)
 	else:
 		pass
+
+func add_player_title(title: String):
+	titles.append(title)
+	if not titles.is_empty():
+		current_title = titles[titles.size() - 1]
+		GameManager.on_show_cert.emit(current_title)

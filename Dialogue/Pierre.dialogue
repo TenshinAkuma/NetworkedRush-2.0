@@ -1,0 +1,38 @@
+~ pierre_ring_task
+
+if !_active_task.is_empty() and _active_task.has(2):
+	if _active_task[current_task_id]["currentObjective"] == 2:
+		Ms. Pierre: Ah, {{player_name}}!  Thank you for coming so quickly. Sandy and I have been trying to figure out the best way to connect our computers.
+		Ms. Pierre: We want to share all our amazing recipe ideas digitally, but technology isn't exactly my forte.
+		Ms. Pierre: Yeah, every time we try to transfer files with a flash drive, it takes forever!  There's gotta be a better way, right?
+		{{player_name}}: Absolutely!  Considering your budget, a ring network could be a good temporary solution.
+		do show_topology_hint("ring", true)
+		{{player_name}}: A ring topology allows all your devices to connect in a loop and share information.
+		Ms. Pierre:  A loop, huh? Sounds a little… twisty.
+		{{player_name}}: It's more like a circle, really.  Think of it like holding hands in a ring game. Data gets passed from one device to the next until it reaches its destination.
+		{{player_name}}:  A ring network does have a downside. If one device malfunctions, the entire network goes down.
+		do show_topology_hint("ring", false)
+		Ms. Pierre: Oh dear, that's not ideal.
+		{{player_name}}: Don't worry,  we can configure things to minimize the risk.
+		{{player_name}}: Let's get these network cards installed and set up a data flow sequence. Think of it like taking turns sharing stories in a circle.
+		do update_objective(current_task_id)
+	elif _active_task[current_task_id]["currentObjective"] == 3:
+		Ms. Pierre: The PC2 is on the right side.
+	elif _active_task[current_task_id]["currentObjective"] == 4:
+		Ms. Pierre: The PC3 is on the middle of cubicle.
+	elif _active_task[current_task_id]["currentObjective"] == 5:
+		Ms. Pierre: You are near completion. The PC1 is on the left side.
+	elif _active_task[current_task_id]["currentObjective"] == 6:
+		Ms. Pierre: Wow, that was fun!  And it actually works!
+		Ms. Pierre: Thank you so much, [Player Name]!  This is a lifesaver!!!.
+		MMs. Pierre: Here's a gift of thanks for your effort.
+		do update_objective(current_task_id)
+		{{player_name}}: Happy to help!  Just remember, this ring network is a good starting point,
+		{{player_name}}: but for long-term scalability, a star topology with a switch might be better.
+	else:
+		Ms. Pierre: Hellooo neighbor, how are you today?
+		Ms. Pierre: I hope you're fine, unlike me, I have a problem.
+else:
+	Ms. Pierre: Hello neighbor from upstaires. I heard you're good at networks.
+	{{player_name}}: Just a regular guy with regular skills -_< 
+=> END

@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3seluwhmlbll"]
+[gd_scene load_steps=11 format=3 uid="uid://c3seluwhmlbll"]
 
 [ext_resource type="TileSet" uid="uid://cuciy0utkrr5c" path="res://Resources/TileMaps/interior_player_house.tres" id="1_ulgcd"]
 [ext_resource type="Script" path="res://Scenes/LevelScenes/apartment_floor_1.gd" id="1_xrxkb"]
 [ext_resource type="PackedScene" uid="uid://bvlv3vo07fs8e" path="res://Utils/scene_changer.tscn" id="3_1a4a5"]
 [ext_resource type="PackedScene" uid="uid://cxi3jkrldfnnl" path="res://Scenes/Characters/player.tscn" id="3_5qkha"]
+[ext_resource type="PackedScene" uid="uid://wlskto781teh" path="res://Utils/dialogue_trigger.tscn" id="3_kpoph"]
+[ext_resource type="Resource" uid="uid://c43ej1cuw1ixh" path="res://Dialogue/Pierre.dialogue" id="4_w083q"]
 [ext_resource type="AudioStream" uid="uid://ddlcpxyjfmfdb" path="res://Assets/BGM/Morning of Beginnings.ogg" id="5_dr3x3"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="5_m8xkh"]
+[ext_resource type="PackedScene" uid="uid://c2lrr3e7whvxr" path="res://Scenes/UIScenes/device_label.tscn" id="6_dh82h"]
 [ext_resource type="PackedScene" uid="uid://cs42lcpvqgfp0" path="res://Utils/connect_device.tscn" id="6_g5b70"]
 
 [node name="ApartmentFloor1" type="Node2D"]
@@ -47,16 +51,103 @@ layer_4/name = "props2"
 layer_4/y_sort_enabled = true
 layer_4/z_index = 2
 layer_4/tile_data = PackedInt32Array(327689, 655370, 26, 327690, 720906, 26, 393226, 720906, 27, 327691, 786442, 26, 393227, 786442, 27, 327695, 851978, 26, 393231, 851978, 27, 327696, 917514, 26, 393232, 917514, 27, 327697, 983050, 26, 393233, 983050, 27, 262156, 851978, 30, 262157, 917514, 8, 262158, 983050, 8)
-layer_5/name = "props3"
-layer_5/y_sort_enabled = true
-layer_5/z_index = 2
-layer_5/tile_data = PackedInt32Array()
+layer_5/name = "pc1"
+layer_5/modulate = Color(1, 1, 1, 0)
+layer_5/z_index = 1
+layer_5/tile_data = PackedInt32Array(458763, 458756, 0, 458762, 458756, 0, 458761, 458756, 0, 393225, 458756, 0, 393227, 458756, 0)
+layer_6/name = "pc2"
+layer_6/modulate = Color(1, 1, 1, 0.0313726)
+layer_6/tile_data = PackedInt32Array(458768, 458756, 0, 458769, 458756, 0, 393232, 458756, 0, 393233, 458756, 0)
+layer_7/name = "pc3"
+layer_7/modulate = Color(1, 1, 1, 0)
+layer_7/tile_data = PackedInt32Array(262156, 458756, 0, 262157, 458756, 0, 196621, 458756, 0, 196620, 458756, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TileMap"]
 position = Vector2(-32, -12)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/StaticBody2D"]
 polygon = PackedVector2Array(96, 300, 96, 316, 192, 316, 192, 300, 208, 300, 208, 320, 80, 320, 80, 300)
+
+[node name="dialogue_trigger" parent="TileMap" instance=ExtResource("3_kpoph")]
+z_index = 2
+position = Vector2(304, 100)
+dialogue_resource = ExtResource("4_w083q")
+dialogue_start = "pierre_ring_task"
+player_action = "talk to Ms. Pierre"
+interaction_key = "T"
+
+[node name="Labels" type="Node" parent="TileMap"]
+
+[node name="MsPierre" type="Label" parent="TileMap/Labels"]
+z_index = 3
+offset_left = 264.0
+offset_top = 12.0
+offset_right = 342.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("5_m8xkh")
+theme_override_font_sizes/font_size = 16
+text = "Ms. Pierre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Server" parent="TileMap/Labels" instance=ExtResource("6_dh82h")]
+z_index = 4
+offset_left = 400.0
+offset_top = 72.0
+offset_right = 440.0
+offset_bottom = 112.0
+device_name = "Server"
+
+[node name="DeviceName" parent="TileMap/Labels/Server" index="0"]
+anchor_left = -0.95
+anchor_top = -1.9
+anchor_right = 0.95
+anchor_bottom = -1.4
+
+[node name="PC1" parent="TileMap/Labels" instance=ExtResource("6_dh82h")]
+z_index = 4
+offset_left = 312.0
+offset_top = 224.0
+offset_right = 352.0
+offset_bottom = 264.0
+device_name = "PC 1"
+
+[node name="DeviceName" parent="TileMap/Labels/PC1" index="0"]
+anchor_left = -0.5
+anchor_top = -1.9
+anchor_right = 1.4
+anchor_bottom = -1.4
+text = ""
+
+[node name="PC2" parent="TileMap/Labels" instance=ExtResource("6_dh82h")]
+z_index = 4
+offset_left = 528.0
+offset_top = 220.0
+offset_right = 568.0
+offset_bottom = 260.0
+device_name = "PC 2"
+
+[node name="DeviceName" parent="TileMap/Labels/PC2" index="0"]
+anchor_left = -1.0
+anchor_top = -1.7
+anchor_right = 0.9
+anchor_bottom = -1.2
+text = ""
+
+[node name="PC3" parent="TileMap/Labels" instance=ExtResource("6_dh82h")]
+z_index = 4
+offset_left = 432.0
+offset_top = 140.0
+offset_right = 472.0
+offset_bottom = 180.0
+device_name = "PC 3"
+
+[node name="DeviceName" parent="TileMap/Labels/PC3" index="0"]
+anchor_left = -1.0
+anchor_top = -0.3
+anchor_right = 0.9
+anchor_bottom = 0.2
+text = ""
 
 [node name="Player" parent="." instance=ExtResource("3_5qkha")]
 z_index = 2
@@ -93,25 +184,40 @@ interaction_key = "E"
 [node name="spawn_point" parent="Doors/apartment_exit" index="1"]
 position = Vector2(0, -56)
 
+[node name="Devices" type="Node" parent="."]
+
+[node name="PC1" parent="Devices" groups=["devices"] instance=ExtResource("6_g5b70")]
+z_index = 2
+position = Vector2(320, 212)
+monitoring = false
+monitorable = false
+
+[node name="PC2" parent="Devices" groups=["devices"] instance=ExtResource("6_g5b70")]
+z_index = 2
+position = Vector2(528, 200)
+monitoring = false
+monitorable = false
+
+[node name="PC3" parent="Devices" groups=["devices"] instance=ExtResource("6_g5b70")]
+z_index = 2
+position = Vector2(432, 148)
+monitoring = false
+monitorable = false
+
+[node name="Cables" type="Node" parent="."]
+
+[node name="LinePreview" type="Line2D" parent="Cables"]
+width = 4.0
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("5_dr3x3")
 autoplay = true
 
-[node name="Devices" type="Node" parent="."]
-
-[node name="PC1" parent="Devices" groups=["devices"] instance=ExtResource("6_g5b70")]
-z_index = 2
-position = Vector2(336, 204)
-
-[node name="PC2" parent="Devices" groups=["devices"] instance=ExtResource("6_g5b70")]
-z_index = 2
-position = Vector2(528, 200)
-
-[node name="PC3" parent="Devices" groups=["devices"] instance=ExtResource("6_g5b70")]
-z_index = 2
-position = Vector2(432, 148)
-
+[editable path="TileMap/Labels/Server"]
+[editable path="TileMap/Labels/PC1"]
+[editable path="TileMap/Labels/PC2"]
+[editable path="TileMap/Labels/PC3"]
 [editable path="Player"]
 [editable path="Player/PlayerCamera"]
 [editable path="Doors/to_floor_2"]

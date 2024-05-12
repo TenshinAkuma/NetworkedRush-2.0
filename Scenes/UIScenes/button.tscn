@@ -54,6 +54,7 @@ theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
 theme_override_colors/font_pressed_color = Color(0.227451, 0.227451, 0.313726, 1)
 theme_override_colors/font_hover_color = Color(0.227451, 0.227451, 0.313726, 1)
 theme_override_colors/font_focus_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_colors/font_disabled_color = Color(0.227451, 0.227451, 0.313726, 1)
 theme_override_colors/font_outline_color = Color(0.698039, 0.682353, 0.796078, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("1_57fqm")

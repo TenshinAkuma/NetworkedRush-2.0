@@ -76,18 +76,12 @@ alignment = 1
 custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 size_flags_vertical = 8
-text = ""
-
-[node name="Label" parent="NinePatchRect/MarginContainer/HBoxContainer/BackMenu/MarginContainer" index="0"]
 text = "Back"
 
 [node name="StartGame" parent="NinePatchRect/MarginContainer/HBoxContainer" instance=ExtResource("3_xee4t")]
 custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 size_flags_vertical = 8
-text = ""
-
-[node name="Label" parent="NinePatchRect/MarginContainer/HBoxContainer/StartGame/MarginContainer" index="0"]
 text = "Start"
 
 [node name="LineEdit" type="LineEdit" parent="NinePatchRect"]

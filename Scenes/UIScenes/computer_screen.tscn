@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd6sbrlxu4o7t"]
+[gd_scene load_steps=11 format=3 uid="uid://dd6sbrlxu4o7t"]
 
 [ext_resource type="Script" path="res://Scenes/UIScenes/computer_screen.gd" id="1_0n31l"]
 [ext_resource type="Texture2D" uid="uid://dux73gk24u61g" path="res://Assets/Tilesheets/Interface/Modern_UI_Style_2_32x32.png" id="1_sgufp"]
 [ext_resource type="PackedScene" uid="uid://bs2xbbjdwope6" path="res://Scenes/UIScenes/button.tscn" id="2_37t53"]
+[ext_resource type="Texture2D" uid="uid://csjq7e4i5igl4" path="res://Assets/Props/Devices/Hub.png" id="4_lo6tx"]
+[ext_resource type="FontFile" uid="uid://c7dcfakj1xiji" path="res://Assets/Fonts/Kenney Mini Square Mono.ttf" id="5_ky2nc"]
+[ext_resource type="FontFile" uid="uid://canpo2eqq0nj7" path="res://Assets/Fonts/Kenney Pixel.ttf" id="6_e4il5"]
+[ext_resource type="Texture2D" uid="uid://bjouij8hmlf7e" path="res://Assets/Props/Devices/Switch.png" id="7_d7mto"]
+[ext_resource type="Texture2D" uid="uid://buao265t8rjb2" path="res://Assets/Props/Devices/Router.png" id="8_y7kon"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nidhe"]
 atlas = ExtResource("1_sgufp")
@@ -72,12 +77,6 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Tasks" parent="NinePatchRect/MarginContainer/Menu/MarginContainer/VBoxContainer" instance=ExtResource("2_37t53")]
-custom_minimum_size = Vector2(96, 32)
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Task"
-
 [node name="Shop" parent="NinePatchRect/MarginContainer/Menu/MarginContainer/VBoxContainer" instance=ExtResource("2_37t53")]
 custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
@@ -113,12 +112,175 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer"]
+custom_minimum_size = Vector2(352, 224)
 layout_mode = 2
-horizontal_scroll_mode = 0
-scroll_deadzone = 32
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 8
+columns = 3
 
-[node name="Tasks" type="VBoxContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/ScrollContainer"]
+[node name="Item" type="NinePatchRect" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(128, 192)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_ekhap")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_lo6tx")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_fonts/font = ExtResource("5_ky2nc")
+theme_override_font_sizes/font_size = 16
+text = "Hub"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_fonts/font = ExtResource("6_e4il5")
+theme_override_font_sizes/font_size = 16
+text = "300"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewGame" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item/MarginContainer/VBoxContainer" instance=ExtResource("2_37t53")]
+layout_mode = 2
+text = "Out of stock"
+
+[node name="Item2" type="NinePatchRect" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_ekhap")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item2/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_d7mto")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_fonts/font = ExtResource("5_ky2nc")
+theme_override_font_sizes/font_size = 16
+text = "Switch"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_fonts/font = ExtResource("6_e4il5")
+theme_override_font_sizes/font_size = 16
+text = "450"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewGame" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item2/MarginContainer/VBoxContainer" instance=ExtResource("2_37t53")]
+layout_mode = 2
+text = "Out of stock"
+
+[node name="Item3" type="NinePatchRect" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_ekhap")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item3/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item3/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_y7kon")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_fonts/font = ExtResource("5_ky2nc")
+theme_override_font_sizes/font_size = 16
+text = "Router"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.227451, 0.227451, 0.313726, 1)
+theme_override_fonts/font = ExtResource("6_e4il5")
+theme_override_font_sizes/font_size = 16
+text = "275"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewGame" parent="NinePatchRect/MarginContainer/Contents/MarginContainer/GridContainer/Item3/MarginContainer/VBoxContainer" instance=ExtResource("2_37t53")]
+layout_mode = 2
+text = "Out of stock"
 
 [connection signal="pressed" from="NinePatchRect/MarginContainer/Menu/MarginContainer/LogOut" to="." method="_on_log_out_pressed"]

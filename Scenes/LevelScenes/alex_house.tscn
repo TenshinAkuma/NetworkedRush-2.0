@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/LevelScenes/alex_house.gd" id="1_3akiq"]
 [ext_resource type="TileSet" uid="uid://clfvp2riofna1" path="res://Resources/TileMaps/interior_tilemap.tres" id="2_3ay3f"]
-[ext_resource type="PackedScene" uid="uid://dbe16aftgufjw" path="res://Scenes/UIScenes/pointer.tscn" id="3_frucp"]
+[ext_resource type="PackedScene" uid="uid://c2lrr3e7whvxr" path="res://Scenes/UIScenes/device_label.tscn" id="4_f23at"]
 [ext_resource type="PackedScene" uid="uid://cxi3jkrldfnnl" path="res://Scenes/Characters/player.tscn" id="5_x8o1q"]
 [ext_resource type="PackedScene" uid="uid://bvlv3vo07fs8e" path="res://Utils/scene_changer.tscn" id="14_4re57"]
 [ext_resource type="PackedScene" uid="uid://cs42lcpvqgfp0" path="res://Utils/connect_device.tscn" id="16_6jkuv"]
@@ -50,17 +50,48 @@ position = Vector2(88, -272)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/StaticBody2D"]
 polygon = PackedVector2Array(104, 592, 168, 592, 168, 568, 176, 568, 176, 600, 96, 600, 96, 568, 104, 568)
 
-[node name="RouterPointer" parent="TileMap" instance=ExtResource("3_frucp")]
+[node name="Router" parent="TileMap" instance=ExtResource("4_f23at")]
 z_index = 4
-position = Vector2(144, 184)
+offset_left = 144.0
+offset_top = 208.0
+offset_right = 184.0
+offset_bottom = 248.0
+device_name = "Router"
 
-[node name="PCPointer" parent="TileMap" instance=ExtResource("3_frucp")]
-z_index = 4
-position = Vector2(144, -192)
+[node name="LabelDetect" parent="TileMap/Router" index="1"]
+position = Vector2(16, 8)
 
-[node name="TVPointer" parent="TileMap" instance=ExtResource("3_frucp")]
+[node name="TV" parent="TileMap" instance=ExtResource("4_f23at")]
 z_index = 4
-position = Vector2(432, 128)
+offset_left = 384.0
+offset_top = 168.0
+offset_right = 424.0
+offset_bottom = 208.0
+device_name = "TV"
+
+[node name="DeviceName" parent="TileMap/TV" index="0"]
+anchor_left = 0.4
+anchor_top = -1.4
+anchor_right = 2.3
+anchor_bottom = -0.9
+
+[node name="LabelDetect" parent="TileMap/TV" index="1"]
+position = Vector2(16, 8)
+
+[node name="PC" parent="TileMap" instance=ExtResource("4_f23at")]
+z_index = 4
+offset_left = 144.0
+offset_top = -152.0
+offset_right = 184.0
+offset_bottom = -112.0
+device_name = "PC"
+
+[node name="DeviceName" parent="TileMap/PC" index="0"]
+anchor_right = 1.1
+anchor_bottom = -0.7
+
+[node name="LabelDetect" parent="TileMap/PC" index="1"]
+position = Vector2(16, 8)
 
 [node name="Cables" type="Node" parent="."]
 
@@ -131,6 +162,9 @@ process_mode = 3
 stream = ExtResource("21_paryk")
 autoplay = true
 
+[editable path="TileMap/Router"]
+[editable path="TileMap/TV"]
+[editable path="TileMap/PC"]
 [editable path="Doors/exit"]
 [editable path="Devices/Router"]
 [editable path="Devices/PC"]

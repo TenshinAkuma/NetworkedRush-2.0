@@ -1,7 +1,5 @@
 extends Control
 
-var save_path = "user://game_data.save"
-
 func _ready():
 	
 	if not TaskManager._active_task.is_empty():
@@ -30,7 +28,8 @@ func update_task(task_name, objective_description):
 
 func _on_save_pressed():
 	var game_data = GameData.new()
-	game_data.save_game()
+	var save_file_path = GameManager.save_path
+	game_data.save_game(save_file_path)
 	
 
 

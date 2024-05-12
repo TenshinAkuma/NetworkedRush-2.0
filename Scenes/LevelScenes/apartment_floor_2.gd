@@ -15,7 +15,6 @@ func on_spawn(spawn_tag: String):
 	SceneManager.player_spawn(spawn_point.spawn_point.global_position, spawn_point.spawn_orientation)
 	
 func pointing(object: String, is_play: bool):
-	
 	$TileMap.get_node(object).set_visible(is_play)
 
 

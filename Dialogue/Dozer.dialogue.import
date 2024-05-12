@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cv3klb1uj7my1"
+path="res://.godot/imported/Dozer.dialogue-957cb21eee33ad6302af9cba52d92ebb.tres"
+
+[deps]
+
+source_file="res://Dialogue/Dozer.dialogue"
+dest_files=["res://.godot/imported/Dozer.dialogue-957cb21eee33ad6302af9cba52d92ebb.tres"]
+
+[params]
+
+defaults=true

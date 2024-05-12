@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://2xp8rcldh2p0"]
+[gd_scene load_steps=27 format=3 uid="uid://2xp8rcldh2p0"]
 
 [ext_resource type="Script" path="res://Scenes/LevelScenes/map_1.gd" id="1_bmnmv"]
 [ext_resource type="Texture2D" uid="uid://rhha26u22vgj" path="res://Assets/Tilesheets/Exteriors/1_Terrains_and_Fences_32x32.png" id="1_lrh8a"]
@@ -9,9 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bfgb2nwybyo4o" path="res://Assets/Tilesheets/Exteriors/10_Vehicles_32x32.png" id="6_02o4n"]
 [ext_resource type="PackedScene" uid="uid://bvlv3vo07fs8e" path="res://Utils/scene_changer.tscn" id="6_fwiis"]
 [ext_resource type="Texture2D" uid="uid://cebgymhita3ia" path="res://Assets/Tilesheets/Exteriors/3_City_Props_32x32.png" id="6_it4qr"]
-[ext_resource type="PackedScene" uid="uid://dcbeon4t4wkok" path="res://Scenes/Characters/alex.tscn" id="8_t7fc6"]
 [ext_resource type="PackedScene" uid="uid://wlskto781teh" path="res://Utils/dialogue_trigger.tscn" id="9_p3kgg"]
-[ext_resource type="Resource" uid="uid://cap5mgww70plq" path="res://Dialogue/Alex.dialogue" id="10_vxedd"]
 [ext_resource type="PackedScene" uid="uid://045b4jgnaw4t" path="res://Scenes/Characters/dozer.tscn" id="12_vkd0d"]
 [ext_resource type="PackedScene" uid="uid://c15u2fyykea7" path="res://Scenes/Characters/bones.tscn" id="13_bor48"]
 [ext_resource type="AudioStream" uid="uid://bstx3kr1l1aa8" path="res://Assets/BGM/Walking the World.ogg" id="15_5kyxi"]
@@ -1541,18 +1539,6 @@ interaction_key = "T"
 z_index = 1
 y_sort_enabled = true
 position = Vector2(1289, 178)
-
-[node name="Alex" parent="TileMap" instance=ExtResource("8_t7fc6")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(361, 112)
-
-[node name="alex_dialogue" parent="TileMap/Alex" instance=ExtResource("9_p3kgg")]
-position = Vector2(0, 16)
-dialogue_resource = ExtResource("10_vxedd")
-dialogue_start = "alex_objective_0"
-player_action = "talk"
-interaction_key = "T"
 
 [node name="Doors" type="Node" parent="."]
 

@@ -35,8 +35,15 @@ This repository holds the codebase for a 2D, single-player, RPG simulation game 
 
 ###  Installation
 
-**_Instructions on how to set up the development environment will go here._**
+  * [Download the game .exe file here](https://github.com/TenshinAkuma/NetworkedRush-2.0/releases/download/v1.0.0/networked-rush-exe-release.zip)
+  *  You can also download or run the game online on [Itch.io](https://tenshinakuma10.itch.io/networked-rush)
 
 ###  Running the Game
 
-**_Instructions on how to run the game will go here._**
+* Downloading the .exe file
+  *  **Extract the zip file
+  *  **then run the .exe file
+
+* Runnin the game on [Itch.io](https://tenshinakuma10.itch.io/networked-rush)
+  *  **Proceed to the link on Itch.io
+  *  **then click the run game

@@ -1,25 +1,3 @@
-~ alex_objective_0
-
-if current_task_id == 0 and current_objective_id == 2:
-	Alex: [[Yo wassup|Wassup|G'day]], You the Network Engineer everyone's been raving about?
-	{{player_name}}: Ayyye, that's me. What can I do for you bruh?
-	Alex: Listen, I just built this fire PC, but my Wi-Fi be trippin' somethin' fierce.
-	Alex:  Laggin' like nobody's business during my raids.
-	Alex: See if you can bless this crib with some proper net connection, aight?
-	- Alright, let's go
-		do update_objective(current_task_id)
-		Alex: NOICE!! Let's head inside do diagnose the problem. {{player_name}}
-	- Maybe next time
-		Alex: Awwe man. I wish you could help me so that I could play with the squad :(
-elif current_task_id == 1 and current_objective_id == 1:
-	Alex: Let's head inside {{player_name}} and see what we can do about my netwerk...
-	Alex: I mean, network >_<
-else:
-	Alex: [[Waazaup chong|YOW mamehn|UIE GAR]]! Life is like a Trojan virus, full of surprises :()
-
-
-=> END
-
 ~ alex_objective_1
 if current_task_id == 1:
 	if current_objective_id == 1:
@@ -55,7 +33,6 @@ if current_task_id == 1:
 		Alex: Here's your reward man!
 		do update_objective(current_task_id)
 		{{player_name}}: [[Thank you man|No problem|Ako lang to]]!
-		do on_show_cert.emit()
 	else:
 		Alex: You're the network wizard, {{player_name}}!
 		

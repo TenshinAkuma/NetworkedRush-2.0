@@ -11,6 +11,8 @@ const MAX_SPEED = 150
 
 func _ready():
 	
+	$NameTag.text = str(PlayerData.player_name)
+	
 	if not SceneManager.on_player_spawn.is_connected(player_spawn):
 		SceneManager.on_player_spawn.connect(player_spawn)
 		

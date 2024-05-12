@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=37 format=3 uid="uid://cuciy0utkrr5c"]
+[gd_resource type="TileSet" load_steps=41 format=3 uid="uid://cuciy0utkrr5c"]
 
 [ext_resource type="Texture2D" uid="uid://bn7yp75eoxyme" path="res://Assets/Tilesheets/RoomBuilder/Room_Builder_3d_walls_32x32.png" id="1_ocbb8"]
 [ext_resource type="Texture2D" uid="uid://i5u2tpx7iwl3" path="res://Assets/Tilesheets/RoomBuilder/Room_Builder_Floors_32x32.png" id="2_8wf6y"]
@@ -13,8 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://d0lhoprv3ixuq" path="res://Assets/Tilesheets/RoomBuilder/Room_Builder_borders_32x32.png" id="8_dmrq5"]
 [ext_resource type="Texture2D" uid="uid://cimb4ba66tx2d" path="res://Assets/Tilesheets/RoomBuilder/Room_Builder_Floor_Connectors_32x32.png" id="9_f2ml7"]
 [ext_resource type="Texture2D" uid="uid://c2nicqn2bfio3" path="res://Assets/Props/Devices/Server.png" id="9_gxhwf"]
+[ext_resource type="Texture2D" uid="uid://cqiqklea7rya6" path="res://Assets/Props/Devices/Modem.png" id="10_8hd5x"]
 [ext_resource type="Texture2D" uid="uid://b23qu4ba785c1" path="res://Assets/Tilesheets/InteriorProps/2_LivingRoom_Shadowless_32x32.png" id="10_jwjav"]
 [ext_resource type="Texture2D" uid="uid://c1gyun7ftu2mm" path="res://Assets/Tilesheets/RoomBuilder/pixel-cyberpunk-interior.png" id="10_nc7ks"]
+[ext_resource type="Texture2D" uid="uid://csjq7e4i5igl4" path="res://Assets/Props/Devices/Hub.png" id="11_2w5cu"]
 [ext_resource type="Texture2D" uid="uid://cs7tq42ryhxra" path="res://Assets/Tilesheets/InteriorProps/4_Bedroom_Shadowless_32x32.png" id="11_p5voi"]
 [ext_resource type="Texture2D" uid="uid://bu4udbdur2ar6" path="res://Assets/Tilesheets/InteriorProps/12_Kitchen_Shadowless_32x32.png" id="12_4mrhs"]
 
@@ -705,6 +707,7 @@ texture_region_size = Vector2i(32, 32)
 0:26/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:26/0/physics_layer_0/angular_velocity = 0.0
 0:26/0/physics_layer_0/polygon_0/points = PackedVector2Array(-88, 0, 112, 0, 112, 48, 104, 48, 104, 28, 16, 28, 16, 48, 8, 48, 8, 28, -80, 28, -80, 48, -88, 48)
+0:26/0/custom_data_0 = true
 4:30/size_in_atlas = Vector2i(3, 2)
 4:30/0 = 0
 4:30/0/texture_origin = Vector2i(0, 16)
@@ -712,6 +715,7 @@ texture_region_size = Vector2i(32, 32)
 4:30/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:30/0/physics_layer_0/angular_velocity = 0.0
 4:30/0/physics_layer_0/polygon_0/points = PackedVector2Array(-44, -32, 40, -32, 40, 16, -44, 16)
+4:30/0/custom_data_0 = true
 13:30/0 = 0
 13:30/0/y_sort_origin = 16
 13:30/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1006,6 +1010,25 @@ texture = ExtResource("9_gxhwf")
 texture_region_size = Vector2i(32, 32)
 0:0/size_in_atlas = Vector2i(2, 3)
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8s1ar"]
+texture = ExtResource("10_8hd5x")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/y_sort_origin = 32
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r46q0"]
+texture = ExtResource("11_2w5cu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/y_sort_origin = 16
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
@@ -2048,5 +2071,7 @@ sources/11 = SubResource("TileSetAtlasSource_qqdte")
 sources/14 = SubResource("TileSetAtlasSource_gyrie")
 sources/15 = SubResource("TileSetAtlasSource_mi2kn")
 sources/16 = SubResource("TileSetAtlasSource_xciru")
+sources/17 = SubResource("TileSetAtlasSource_8s1ar")
+sources/18 = SubResource("TileSetAtlasSource_r46q0")
 pattern_0 = SubResource("TileMapPattern_hfo1r")
 pattern_1 = SubResource("TileMapPattern_m8s4r")

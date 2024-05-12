@@ -27,7 +27,7 @@ This repository holds the codebase for a 2D, single-player, RPG simulation game 
     * **Educators:** Integrate the game into curriculums to make networking concepts more relatable.
     * **Researchers:** Explore the potential of game-based learning in technical fields.
 
-### ️ Technical Stack (**Replace with your specific technologies used)**
+### ️ Technical Stack
 
 * Programming Language: GDScript(Godot scripting language)
 * Game Engine/Framework: Godot 4.1
